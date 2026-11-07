@@ -1,0 +1,55 @@
+[project]
+name = "sit-lmpc-remastered"
+version = "0.1.0"
+description = "Refactored SIT-LMPC with Bayesian dynamics learning and chance constraints"
+requires-python = ">=3.13,<3.14"
+readme = "README.md"
+license = "Apache-2.0 AND MIT"
+license-files = ["LICENSE", "LICENSES/Apache-2.0.txt", "NOTICE", "NOTICE.upstream"]
+dependencies = [
+  "jax==0.11.2", "numpy>=2.1,<2.6", "scipy>=1.7.3",
+  "numba>=0.61,<0.69", "flax==0.12.10", "distrax==0.1.9",
+  "tfp-nightly==0.26.0.dev20261011", "optax==0.2.8",
+  "orbax-checkpoint==0.12.7", "pyyaml>=6", "pillow>=9",
+  "yamldataclassconfig>=1.5,<2", "f1tenth-gym", "dyna-dist",
+]
+
+[project.optional-dependencies]
+gpu = ["jax[cuda13]==0.11.2"]
+plots = ["utilsuite[qt]==0.1.0", "matplotlib>=3.10", "pynput>=1.8"]
+dev = ["pytest>=8", "ruff>=0.9"]
+
+[project.scripts]
+sit-racecar = "sit_lmpc.cli.racecar:main"
+sit-track = "sit_lmpc.cli.tracking:main"
+sit-train-value = "sit_lmpc.cli.train_value:main"
+sit-replay = "sit_lmpc.cli.replay:main"
+sit-insight = "sit_lmpc.cli.insight:main"
+sit-import-bnn = "sit_lmpc.cli.import_bnn:main"
+sit-train-dynamics = "dyna_dist.cli:train_main"
+
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "sit_lmpc"
+source-include = ["vendor/**", "configs/**", "docs/**", "tests/**", "scripts/**", "examples/**", "uv.lock", ".python-version"]
+source-exclude = ["**/__pycache__/**", "**/*.pyc", "**/*.nbc", "**/*.nbi", "configs/check-runs/**", "configs/full-runs/**", "docs/check-runs/**", "docs/full-runs/**", "docs/RUNTIME_DEPENDENCY_PATHS.json"]
+
+[tool.uv.sources]
+dyna-dist = {path = "vendor/dyna-dist"}
+f1tenth-gym = {path = "vendor/f1tenth_gym"}
+utilsuite = {path = "vendor/utilitySuite"}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+exclude = ["vendor"]
+
+[tool.ruff.lint]
+select = ["F"]
+ignore = ["F401"]

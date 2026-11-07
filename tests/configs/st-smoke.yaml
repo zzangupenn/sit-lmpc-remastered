@@ -1,0 +1,31 @@
+extends: ../../configs/default.yaml
+output:
+  directory: results/validation-st-smoke
+  checkpoint_every_trials: 1
+simulation:
+  seed_mode: fixed
+  seed: 119
+  max_steps: 1200
+  max_laps: 3
+  state_noise: 0.0
+  control_noise: [0.0, 0.0]
+planner:
+  horizon: 10
+  samples: 128
+  lambda_count: 4
+  safe_set_size: 1
+  hull_selection_points: 128
+  hull_precompile: false
+value:
+  hidden_dims: 16
+  layers: 1
+  bins: 4
+  batch_size: 64
+  epochs: 2
+  boundary_samples: 8
+diagnostics:
+  render: false
+  plots: false
+  summary_plots: false
+  keyboard_controls: false
+  trace_steps: 0

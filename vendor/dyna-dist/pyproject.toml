@@ -1,0 +1,44 @@
+[project]
+name = "dyna-dist"
+version = "0.1.0"
+description = "Hierarchical Bayesian dynamics learning and coherent function sampling"
+requires-python = ">=3.13,<3.14"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "NOTICE"]
+dependencies = [
+  "jax==0.11.2", "flax==0.12.10", "optax==0.2.8",
+  "numpy>=2.1,<2.6", "scipy>=1.7.3", "pyyaml>=6",
+]
+
+[project.optional-dependencies]
+collection = ["f1tenth-gym"]
+gpu = ["jax[cuda13]==0.11.2"]
+plots = ["matplotlib>=3.10"]
+dev = ["pytest>=8", "ruff>=0.9"]
+
+[project.scripts]
+dyna-collect-st = "dyna_dist.cli:collect_main"
+dyna-collect-vehicle = "dyna_dist.cli:collect_vehicle_main"
+dyna-collect-vehicle-study = "dyna_dist.cli:collect_vehicle_study_main"
+dyna-train = "dyna_dist.cli:train_main"
+dyna-evaluate = "dyna_dist.cli:evaluate_main"
+dyna-evaluate-vehicle-bnn = "dyna_dist.cli:evaluate_vehicle_bnn_main"
+dyna-sample = "dyna_dist.cli:sample_main"
+
+[build-system]
+requires = ["uv_build>=0.13,<0.14"]
+build-backend = "uv_build"
+
+[tool.uv.sources]
+f1tenth-gym = { path = "../f1tenth_gym" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]

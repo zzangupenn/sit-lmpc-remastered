@@ -1,0 +1,50 @@
+# Offline v2 Gaussian population training; supply an existing vehicle-study dataset with --dataset.
+dataset: data/dyna-dataset-v2
+output: runs/dynamics-population
+seed: 20261018
+steps: 20000
+batch_instances: 4
+objective: population_joint
+training_option: 1
+prior_refit: true
+refit_transitions: 64
+refit_iterations: 1
+em_refresh_every: 200
+em_transitions: 0
+em_chunk_size: 4096
+rollout_validation_every: 1000
+rollout_validation_particles: 64
+context_min: 0
+context_max: 0
+query_size: 64
+learning_rate: 0.001
+gradient_clip: 5.0
+weight_decay: 0.00001
+validation_every: 200
+checkpoint_every: 1000
+validation_batches: 16
+progress_plot: true
+data_view: 'true'
+max_transitions_per_instance: 0
+balance_learning_stages: false
+resume_path: null
+init_model_path: null
+model:
+  domain: st
+  bayesian: true
+  mode: dynamics
+  latent_dimension: 96
+  hidden_sizes: [128, 128]
+  dtype: float32
+  learn_prior: true
+  learn_noise: true
+  noise_std: 0.05
+  noise_floor: 0.003
+  noise_ceiling: 0.5
+  prior_floor: 0.001
+  timestep: 0.1
+  integrator_timestep: 0.01
+  baseline_profile: fullscale
+  baseline_friction: 0.65
+  baseline_mass_ratio: 1.0
+  baseline_inertia_policy: fixed

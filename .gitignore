@@ -218,3 +218,41 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project-local runtime and generated research artifacts
+/.cache/
+/.venv/
+/.uv-python/
+/results/
+/runs/
+/artifacts/
+/data/
+/work/
+/dist/
+/build/
+*.egg-info/
+**/__pycache__/
+*.py[cod]
+*.nbc
+*.nbi
+.pytest_cache/
+.ruff_cache/
+MUJOCO_LOG.TXT
+.env
+.env.*
+!.env.example
+!uv.lock
+!.python-version
+
+# Machine-specific experiment orchestration and live monitoring
+/configs/check-runs/
+/configs/full-runs/
+/docs/check-runs/
+/docs/full-runs/
+/docs/RUNTIME_DEPENDENCY_PATHS.json
+*.tmp
+*.tmp.png
+
+# Curated examples contain intentional small data/model artifacts.
+!examples/racecar/data/*.npz
+!examples/racecar/models/vehicle-bnn-v2-l96/model.msgpack

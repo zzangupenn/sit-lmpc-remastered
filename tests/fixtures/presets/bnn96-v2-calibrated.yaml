@@ -1,0 +1,86 @@
+# V2 original-generator BNN; preserve the calibrated baseline's planner and simulation settings.
+simulation:
+  model: dynamic_ST  # Actual Gym dynamics remain analytical ST. [resume]
+  map: custom1  # Same track as the four-ST experiment. [resume]
+  timestep: 0.1  # Must match the pretrained BNN transition interval, seconds.
+  integrator_timestep: 0.02  # Preserve Gym integration; the BNN was trained with a 0.01 s substep.
+  friction: 0.5  # True friction is not supplied to the BNN learner.
+  initial_speed: 10.0  # Same tracking warm-up target as the four-ST experiment.
+  max_laps: 200  # Count successful and physically failed attempts.
+  max_steps: 100000  # Maximum applied control steps.
+  seed_mode: auto  # Generate and save a fresh master seed for each experiment.
+  dtype: float32  # Neural inference precision; Gaussian evidence is accumulated in CPU float64.
+  action_scale: [0.4, 3.5]  # Physical steering-speed and acceleration scales.
+  control_noise: [0.001, 0.001]  # Actual actuator noise; evidence uses measured applied controls.
+  state_noise: 0.001  # Controller-input perturbation, not dynamics uncertainty or a learning observation.
+planner:
+  dynamics:
+    backend: gaussian_bnn  # Use the continuous learned function distribution, not the finite ST bank.
+    checkpoint: ../dyna-dist/runs/vehicle_st/bnn-v2-latent96-20261022-164831/best_refit  # Fresh v2 latent-96 population; trained up to 30 m/s, resolve from SIT-LMPC Remastered root.
+    belief_update: posterior  # Update latent Gaussian mean/covariance after each attempt; neural features stay fixed.
+    likelihood_power: 1.0  # Maximum likelihood power; calibration selects a lower value if needed.
+    posterior_method: tempered  # Default BNN belief update; standard is legacy uncalibrated Bayes; noise and noise_tempered are optional ablations.
+    calibration_fraction: 0.2  # Reserve an experiment-local calibration block, separate from fitting and final test data.
+    calibration_split: random_windows  # Random sliding windows throughout the trajectory, no forced gaps; contiguous restores the old prefix/block/suffix split.
+    calibration_horizon: 10  # Sliding rollout-window length; also gap size only in contiguous mode.
+    calibration_min_windows: 4  # Hold the previous published belief until enough complete calibration windows exist.
+    calibration_target_coverage: 0.95  # Target empirical 95% function-tube coverage; not a real-system probability guarantee.
+    calibration_score_slack: 0.05  # Maximum permitted calibration energy-score degradation relative to the previous belief.
+    calibration_powers: [1.0, 0.1, 0.01, 0.001, 0.0001, 0.00001, 0.000001]  # Tested global evidence powers; each reweights all unique fitting observations.
+    particles: 64  # Equally weighted posterior function draws, fixed across each horizon and candidate set.
+    chance_estimation: planning_samples  # Reuse the 64 planning functions for empirical chance fractions; independent enables separate confidence-bounded verification.
+    verification_particles: 2048  # Used only by chance_estimation: independent; no second rollout in planning_samples mode.
+    verification_confidence: 0.95  # Used only by independent verification; empirical planning-sample estimates have no confidence guarantee.
+    update_batch_size: 512  # Fixed padded feature batches; each unique training transition contributes once.
+    validation_fraction: 0.2  # Disjoint random test windows, or a suffix in contiguous mode.
+    validation_particles: 64  # Held-out rollout uncertainty diagnostics.
+    validation_max_windows: 64  # Bound held-out diagnostics at available horizons 1/5/10/15.
+  sit_lmpc_mode: false  # Enable posterior learning and retries after physical failures.
+  friction: 0.4  # Analytical compatibility/diagnostic model only; not the BNN predictor or a learned friction.
+  belief:
+    enabled: false  # Disable the finite-bank learner; BNN adaptation is controlled by dynamics.belief_update.
+  horizon: 10  # One latent draw stays fixed for all ten future transitions.
+  samples: 512  # Sampled MPPI action sequences, not dynamics functions.
+  iterations: 1  # Tracking MPPI optimization passes per control step.
+  sample_std: [0.25, 0.25]  # Existing normalized LMPPI action perturbations.
+  temperature: 0.01  # Existing MPPI importance-weight temperature.
+  damping: 0.001  # Existing reward-range stabilization.
+  half_width: 4.0  # Physical failure boundary in meters. [resume]
+  boundary_buffer: 0.03  # Same inward control margin as the four-ST experiment, meters.
+  lambda_count: 16  # Existing nominal hull/boundary lambda levels.
+  lambda_max: 20.0  # Existing nominal penalty upper bound, exclusive.
+  safe_set_size: 4  # Five successful tracking laps before LMPPI, matching the four-ST experiment.
+  hull_selection_points: 1000  # Existing local safe-set geometry budget.
+  hull_bucket: 10  # Preserve the original bounded hull-size buckets.
+  hull_precompile: true  # Precompile bounded hull scorers before driving.
+  hull_precompile_limit: 1200  # Exclusive hull-table facet-size limit.
+  safe_set_relaxation: 0.03  # Existing terminal-hull tolerance; not a probability threshold.
+  mean_value: true  # Average predicted values over the horizon instead of using only the endpoint value.
+  scan_rollout: true  # Use compiled scans for the coherent function rollouts.
+  risk_constraint:
+    enabled: false  # Isolate dynamics-based chance constraints from learned risk-to-go.
+  probabilistic_safety:
+    enabled: true  # Experimental boundary/terminal-hull gates; an infeasible belief can stop the run.
+    boundary_threshold: 0.05  # Maximum upper probability of any horizon boundary violation.
+    terminal_hull_threshold: 0.9  # Maximum upper probability of terminal safe-set hull violation.
+    lambda_count: 10  # Active chance penalty levels.
+    lambda_max: 20.0  # Chance penalty upper bound, exclusive.
+    max_candidates: 256  # Fixed candidate set before independent verification.
+    fallback: baseline  # Continue with SIT-LMPC's least boundary/hull violation and print selected probabilities; stop opts into strict verification.
+value:
+  input_mode: state  # Same state-only value input as the four-ST baseline. [resume]
+  epochs: 300  # Same normal value-training budget; not BNN neural retraining.
+risk:
+  enabled: false  # Match the four-ST experiment without unused risk-model training.
+diagnostics:
+  render: true  # --headless disables only the simulator window.
+  plots: false  # Live plots remain disabled.
+  keyboard_controls: true  # 5: sampled dynamics trajectories; click/key advances; 0 closes; Ctrl+Alt+K suspends/resumes shortcuts, not the experiment.
+  summary_plots: true  # Save ordinary experiment summaries.
+  trace_steps: 50  # Shared recent-step limit for trace and insight; 0 disables both.
+output:
+  root: results  # Save under results/<map>/ as a fresh experiment.
+  exp_name: bnn96-v2-calibrated-chance-f05  # Prefix followed by an Eastern timestamp.
+  checkpoint_every_trials: 10  # Include the original model and learned posterior in independent checkpoints.
+  quick_load: false  # Collect new warm-up laps unless an explicit compatible init file is selected.
+  resume: null  # Direct checkpoint path; leave null for a fresh experiment.

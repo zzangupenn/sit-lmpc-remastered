@@ -1,0 +1,1540 @@
+{
+  "source_repository": "/home/lucerna/Research/BRO-LMPC",
+  "source_head": "c3ba588bd97d5e6d7f53abdc98976e45a09a3ffc",
+  "source_worktree": "Current working files, including relevant uncommitted racecar changes; hashes below are authoritative",
+  "files": [
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/__init__.py",
+      "destination": "src/sit_lmpc/__init__.py",
+      "source_sha256": "5bd175c72a6c4460221670e1c759509852b3eec7d59b1b190ceedff7016e7163"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/dynamics/distribution.py",
+      "destination": "src/sit_lmpc/dynamics/distribution.py",
+      "source_sha256": "a3c3d2f2a32a64f0310371df1eaa5c3d2fc6bd6b1094a975de39c0885e3f4034"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/dynamics/model_bank.py",
+      "destination": "src/sit_lmpc/dynamics/model_bank.py",
+      "source_sha256": "e5d3e174530fefb5b8e3d4dc9b6577fc4a2fb4d2faebdac374eca2fdd1262de3"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/dynamics/bank.py",
+      "destination": "src/sit_lmpc/dynamics/bank.py",
+      "source_sha256": "35620b000f06ea62f50d886eb105c9e71478f46e7844000684dc441f92e219a3"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/dynamics/gaussian_bnn.py",
+      "destination": "src/sit_lmpc/dynamics/gaussian_bnn.py",
+      "source_sha256": "3b4711ef99674a3947ab7520ede8f708fc3e0dfbacc2c262cacb0afde2116a20"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/dynamics/physics.py",
+      "destination": "src/sit_lmpc/dynamics/physics.py",
+      "source_sha256": "a8576114f46d5255e551ba914352d0c3496995e534ca47bdbf04bfe4ba9cc7fe"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/dynamics/__init__.py",
+      "destination": "src/sit_lmpc/dynamics/__init__.py",
+      "source_sha256": "578f5eacd220bdf80e1414ea21937cbba99abefa4ddc7c157b32fbeebfde196c"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/dynamics/ensemble_fit.py",
+      "destination": "src/sit_lmpc/dynamics/ensemble_fit.py",
+      "source_sha256": "dc7a207a8dcb0da212abc2cb7fd9300874acbbe971f92cf5673854ba3f22044f"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/dynamics/ensemble.py",
+      "destination": "src/sit_lmpc/dynamics/ensemble.py",
+      "source_sha256": "1246f5dfc45f43c29cd19ad8e4880a8d54eb7f0250f3f7a0fe484765b44acc77"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/dynamics/st.py",
+      "destination": "src/sit_lmpc/dynamics/st.py",
+      "source_sha256": "6ba5678b166a23820a167d532a2bcdac1a97717786c48f84b5e01ceb6bb2f2c4"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/dynamics/belief.py",
+      "destination": "src/sit_lmpc/dynamics/belief.py",
+      "source_sha256": "f45a74cf2c22132d866969405b1ea6b1c72b2169a9659c7606caff2c2e08d264"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/config/schema.py",
+      "destination": "src/sit_lmpc/config/schema.py",
+      "source_sha256": "7d1d3f5e06d830c9222b2eb3e76d4aea814b75edf5ca7454c67866f28f719b49"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/config/resume.py",
+      "destination": "src/sit_lmpc/config/resume.py",
+      "source_sha256": "9b4dc19bdc38cb19078168e1510fa0a54e83eb69678fe1c28c7a86422709b039"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/config/__init__.py",
+      "destination": "src/sit_lmpc/config/__init__.py",
+      "source_sha256": "676fe4f745b5abfe067a212bfb9b00044005f34efa9bc87cc4e1a44622f67f3c"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/config/default.yaml",
+      "destination": "src/sit_lmpc/config/default.yaml",
+      "source_sha256": "5bfd9b9b2e0f3f51379efd96dac4a9d58203760ceb9b3e7c0cb00e92c5c3d0ce"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/diagnostics/insight_context.py",
+      "destination": "src/sit_lmpc/diagnostics/insight_context.py",
+      "source_sha256": "95944ec37de6b3ca50320efa9b4a004a50996afff1bf8f760f23199018e54bea"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/diagnostics/plots.py",
+      "destination": "src/sit_lmpc/diagnostics/plots.py",
+      "source_sha256": "ad55e347fb639e8bae23645e5f8b9aee1c2539382da42a5b1847d72735a4d765"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/diagnostics/rendering.py",
+      "destination": "src/sit_lmpc/diagnostics/rendering.py",
+      "source_sha256": "fa798bda5435439bf993138294ca44c509c5ee6364442b443fcca9824f28397e"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/diagnostics/insight.py",
+      "destination": "src/sit_lmpc/diagnostics/insight.py",
+      "source_sha256": "c0d840bda367c89fa1c33211697a5d2f6385cdbc4410a2a5dcd6c898e6096813"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/diagnostics/safe_set_costs.py",
+      "destination": "src/sit_lmpc/diagnostics/safe_set_costs.py",
+      "source_sha256": "f827ed119623366031bb498d6dfd6fdf50af622685d04c867809270a92fc7053"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/diagnostics/keyboard.py",
+      "destination": "src/sit_lmpc/diagnostics/keyboard.py",
+      "source_sha256": "739d725dd38d2f57cd90db7f72986c4729fbc76d55447d912cf9ce2660ec7b16"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/diagnostics/density_calibration.py",
+      "destination": "src/sit_lmpc/diagnostics/density_calibration.py",
+      "source_sha256": "2dfb342715d7f5a7653b5d8007542ab31045f7151f33809f8441df4600796abd"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/diagnostics/__init__.py",
+      "destination": "src/sit_lmpc/diagnostics/__init__.py",
+      "source_sha256": "7fa44be9e589b0d39498802b5098dcdada4d23c072d05545371923709016451f"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/diagnostics/native_insight.py",
+      "destination": "src/sit_lmpc/diagnostics/native_insight.py",
+      "source_sha256": "c7c8ec0a1bd0fe93024869a22f3541036e353fdbec40f8c3c72c1c96f5655819"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/diagnostics/restored_plots.py",
+      "destination": "src/sit_lmpc/diagnostics/restored_plots.py",
+      "source_sha256": "17f606d465f3ef7f0772fe1aa6227ea4d5dfbb7e6d8c49d06d5a0da7b160e9ed"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/diagnostics/model_comparison.py",
+      "destination": "src/sit_lmpc/diagnostics/model_comparison.py",
+      "source_sha256": "265311ffe5b62387006666c75f648b8d84d4371b1e2e0de6a83eabf930adb3f2"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/diagnostics/events.py",
+      "destination": "src/sit_lmpc/diagnostics/events.py",
+      "source_sha256": "9daf2f70555e3697fdc6bfd630aaaed9415e95d0b1505556cf7a24f04f3396d9"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/diagnostics/lap_metrics.py",
+      "destination": "src/sit_lmpc/diagnostics/lap_metrics.py",
+      "source_sha256": "587ab9f564eef2301ad80aab70db7abc2bd7b40d44ca0ec90a74c3381165038b"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/planners/probabilistic.py",
+      "destination": "src/sit_lmpc/planners/probabilistic.py",
+      "source_sha256": "2c075f80e0bae9f1afccc2dd3f74cd71907cd2e64c8365c6c461e3047b447b54"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/planners/reference.py",
+      "destination": "src/sit_lmpc/planners/reference.py",
+      "source_sha256": "b0cba0071727da60c6dee51febc28b7d16dccd8b2e3c7997a97989f7a63f83ab"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/planners/common.py",
+      "destination": "src/sit_lmpc/planners/common.py",
+      "source_sha256": "4e390583bc2c43f0c2e4bd676fc742b6a843bb246d9c5ea68b3c146e05121d0c"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/planners/mppi.py",
+      "destination": "src/sit_lmpc/planners/mppi.py",
+      "source_sha256": "e5cef3f6618f4a949269e83f8bf6d82bb446a76499d6c3361678aa75012c0429"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/planners/safe_set.py",
+      "destination": "src/sit_lmpc/planners/safe_set.py",
+      "source_sha256": "dccf4112c1f93d7522fe2db4edad5b90984a55abb9fdf49fac5742fa01433d9d"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/planners/lmppi.py",
+      "destination": "src/sit_lmpc/planners/lmppi.py",
+      "source_sha256": "beaae33ef22cdf08a93d619a9c0d3c9762bdc1dba3266d7db6f3ade35abc10a0"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/planners/__init__.py",
+      "destination": "src/sit_lmpc/planners/__init__.py",
+      "source_sha256": "21382039d647a0771f524ee1e358a9fbbbee7762bb03efcb4124ea5ad67fe258"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/planners/implicit_hull.py",
+      "destination": "src/sit_lmpc/planners/implicit_hull.py",
+      "source_sha256": "596cc2875f79e4472612fd735ebecd684004a71cfc733b6bdfc595086152db42"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/track.py",
+      "destination": "src/sit_lmpc/track/track.py",
+      "source_sha256": "c70bc5b8f91352a829be18d68a1891cbf5ac8a4a0620a837cc2998d16dbf7ce4"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/cubic_spline.py",
+      "destination": "src/sit_lmpc/track/cubic_spline.py",
+      "source_sha256": "31301c648474063a27e323c0e4a83f7c9790f792d49100a0fd891a4d0de8e5fe"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/resources.py",
+      "destination": "src/sit_lmpc/track/resources.py",
+      "source_sha256": "29a4d99a48ebe816364e24b62d8bfd7dc4dde2cdd5322f4fbfc829034cebea44"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/utils.py",
+      "destination": "src/sit_lmpc/track/utils.py",
+      "source_sha256": "d401420edf508214bbb040fa73b1b79d845f5d101ae1c5a5a30d3776607fb618"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/raceline.py",
+      "destination": "src/sit_lmpc/track/raceline.py",
+      "source_sha256": "9e1fa841173f2d05415c992a28ce528a3ea23fecfaa91198143bc468cb20a97e"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/__init__.py",
+      "destination": "src/sit_lmpc/track/__init__.py",
+      "source_sha256": "52d4fe5164f162e7a3af72a4177bd9721c90c982ad06b7980853a3d4a8609e73"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/Spielberg/Spielberg_map.yaml",
+      "destination": "src/sit_lmpc/track/maps/Spielberg/Spielberg_map.yaml",
+      "source_sha256": "86c0eb7546bb035ee6e0173eddc8a2953f8c079944acd28374856f8cc245f6f1"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/Spielberg/Spielberg_map.png",
+      "destination": "src/sit_lmpc/track/maps/Spielberg/Spielberg_map.png",
+      "source_sha256": "3378ea1da231e00b4c41015311f7f3a63fb62420d8c54aaa23b6d1ca7c947e56"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/Spielberg/Spielberg_raceline.csv",
+      "destination": "src/sit_lmpc/track/maps/Spielberg/Spielberg_raceline.csv",
+      "source_sha256": "4b79179d42e712c9121ffbfb045cd0b06689d96607ffa5701324360450d1f0bd"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/Spielberg/Spielberg_centerline.csv",
+      "destination": "src/sit_lmpc/track/maps/Spielberg/Spielberg_centerline.csv",
+      "source_sha256": "3c690173dda7772bffc36190e6d6f0e11e61be86a65e3910cd78cdd0c098c602"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/custom1/custom1_map.yaml",
+      "destination": "src/sit_lmpc/track/maps/custom1/custom1_map.yaml",
+      "source_sha256": "96c48a183044f75a352983fbdeffea5c6f2bd9a4df2a69eb528f8a2c851a89b4"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/custom1/custom1_raceline.csv",
+      "destination": "src/sit_lmpc/track/maps/custom1/custom1_raceline.csv",
+      "source_sha256": "32fcbcd6c815141622ec8cac71db04f493b76c54fb6d21253aecf0ede537b5a6"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/custom1/custom1_w4.png",
+      "destination": "src/sit_lmpc/track/maps/custom1/custom1_w4.png",
+      "source_sha256": "2f55e23bdc33f6b1798e4bb98e7654bccd831eb46ec026b1a4d37e56db9fe8fa"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/custom1/custom1_map.png",
+      "destination": "src/sit_lmpc/track/maps/custom1/custom1_map.png",
+      "source_sha256": "ca2774355fed0998379f0eabf8abdf5530d590774afe42c3f7b2ceeb1c608836"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/custom2/custom2_map.png",
+      "destination": "src/sit_lmpc/track/maps/custom2/custom2_map.png",
+      "source_sha256": "6333b7d183ac4ee22e9282cbae7d739cb26404abb02108325347c59033330c46"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/custom2/custom2_raceline.csv",
+      "destination": "src/sit_lmpc/track/maps/custom2/custom2_raceline.csv",
+      "source_sha256": "096c4fe013f308be335bb61a3bb7b0f99a7ed96ac43f6a182b96f731c2c95981"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/custom2/custom2_map.yaml",
+      "destination": "src/sit_lmpc/track/maps/custom2/custom2_map.yaml",
+      "source_sha256": "440a5e33d78e185b9fe486ae37d705262f2b6ad28026fe69d184ab44e096f2e7"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/custom2/custom2_w4.png",
+      "destination": "src/sit_lmpc/track/maps/custom2/custom2_w4.png",
+      "source_sha256": "636e0058c1bd6fb17f48b4b2766d8279716259579db330392b46a24d7f023082"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/tough/tough_map.png",
+      "destination": "src/sit_lmpc/track/maps/tough/tough_map.png",
+      "source_sha256": "964411b83f15c45f7b41a62e7bf9dbde1bf95cbf68d640cd5e32f3ff6976c6d1"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/tough/tough_w4.png",
+      "destination": "src/sit_lmpc/track/maps/tough/tough_w4.png",
+      "source_sha256": "248853a314861d754cca90f24dbc25ad62d3353ee2e77ccf31d5cedeb957eb2c"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/tough/tough_map.yaml",
+      "destination": "src/sit_lmpc/track/maps/tough/tough_map.yaml",
+      "source_sha256": "0f4f1f85988f4222d541e26f80c387f7c554bbb8282c4b7aa233bf504f14a196"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/track/maps/tough/tough_raceline.csv",
+      "destination": "src/sit_lmpc/track/maps/tough/tough_raceline.csv",
+      "source_sha256": "894cbcbd7e5d86617683f26cdcdcd07fe0007ffe44f5a765315603f35bcb70ca"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/training/risk.py",
+      "destination": "src/sit_lmpc/training/risk.py",
+      "source_sha256": "2e16166c3803ffe078b26cb65f1c519dfa2d14cbc0ac6eef336c45b8d989edfa"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/training/value.py",
+      "destination": "src/sit_lmpc/training/value.py",
+      "source_sha256": "10c0543c69cc3d956c14c5c9b7610e0aa4892d56917fff7a3bac06b1314bceb3"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/training/dynamics.py",
+      "destination": "src/sit_lmpc/training/dynamics.py",
+      "source_sha256": "32aff3220f593dad0a6dc3d9c6b99a664ef527e6637e32b899deb3f893e5989c"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/training/bnn_calibration.py",
+      "destination": "src/sit_lmpc/training/bnn_calibration.py",
+      "source_sha256": "8fe3e7692f0e55a43a83b84796824862771dbbcbfbc57de390f020c976d741bc"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/training/features.py",
+      "destination": "src/sit_lmpc/training/features.py",
+      "source_sha256": "0d65f730bcc945aea08cc6a4575b7680ab7841ee172b793a9624152b53f68e65"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/training/safe_set_density.py",
+      "destination": "src/sit_lmpc/training/safe_set_density.py",
+      "source_sha256": "7d75d65682018da04605329418f0d3929b1afd516a089f568fb8ee601283bd36"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/training/gaussian_bnn.py",
+      "destination": "src/sit_lmpc/training/gaussian_bnn.py",
+      "source_sha256": "2781f196909a324e7b3a649378e361acfd31c0b879081c43be18a1e4b3fbef17"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/training/__init__.py",
+      "destination": "src/sit_lmpc/training/__init__.py",
+      "source_sha256": "fda4e950a6584fcf77a4f5e74205e5a3546bf8e21867895972894e722a260f07"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/experiments/runtime.py",
+      "destination": "src/sit_lmpc/experiments/runtime.py",
+      "source_sha256": "497a87e3a5980ac1f07548306de0299764ad7647a26a61db49e430ddd87c069d"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/experiments/runner.py",
+      "destination": "src/sit_lmpc/experiments/runner.py",
+      "source_sha256": "af04601e20e43c909ca4b005eeedc61a389fa96b90220e70db41a1bb113d0bfd"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/experiments/randomness.py",
+      "destination": "src/sit_lmpc/experiments/randomness.py",
+      "source_sha256": "b9b0173b23c57a617bd7cb951f7b27f5ac249cb4a6c80714b7168ab012c9569d"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/experiments/__init__.py",
+      "destination": "src/sit_lmpc/experiments/__init__.py",
+      "source_sha256": "5bce36010bb7616eda06767d89c954de88d74c2951504e3d63f2016805b5723d"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/adapters/f1tenth.py",
+      "destination": "src/sit_lmpc/adapters/f1tenth.py",
+      "source_sha256": "4fa8fcb7bd010f99ad19e9f7fef5237cd9e198249c7b9fc69e249fa7d568144f"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/adapters/__init__.py",
+      "destination": "src/sit_lmpc/adapters/__init__.py",
+      "source_sha256": "f3106043f249dcae951a1d6a6c352a77ee0ee590cb5228af5971f5ff516628c4"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/cli/replay.py",
+      "destination": "src/sit_lmpc/cli/replay.py",
+      "source_sha256": "7a7ecb2aac8611bf92917b62088c94decb8204d74dac13476fdecf4c53b08765"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/cli/train_value.py",
+      "destination": "src/sit_lmpc/cli/train_value.py",
+      "source_sha256": "0f4dc619e16c5039791d9ac31e4969a25a668f30f6b7eb0e9a7bbdc1d6699f75"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/cli/insight.py",
+      "destination": "src/sit_lmpc/cli/insight.py",
+      "source_sha256": "3eba1baa05463aa290f4a299374b611d58564b446863787235edd32485bc7b25"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/cli/tracking.py",
+      "destination": "src/sit_lmpc/cli/tracking.py",
+      "source_sha256": "37572a476b74775e5a1fe11f7d0479a88a463a756ef514b1b4fd670d579c5f57"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/cli/racecar.py",
+      "destination": "src/sit_lmpc/cli/racecar.py",
+      "source_sha256": "24948c8e9f657ca199fdcae09eafd5e771032cc5167692477052bf7a433efe66"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/cli/__init__.py",
+      "destination": "src/sit_lmpc/cli/__init__.py",
+      "source_sha256": "d18cfbcb39bc6c6623b09d2f4f28db6d07d5553980c7c7f33f5ee7647a9cbd1d"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/models/__init__.py",
+      "destination": "src/sit_lmpc/models/__init__.py",
+      "source_sha256": "cf8a0674961f06d5c80b15bbea4d67630d9939a7ee10be4eb581a4f2b7cb7113"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/models/value/flow.py",
+      "destination": "src/sit_lmpc/models/value/flow.py",
+      "source_sha256": "6df062715b6fcdf232d023fc22289cf0a5729671fcbda07313eb523c9a06a43f"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/models/value/bijectors.py",
+      "destination": "src/sit_lmpc/models/value/bijectors.py",
+      "source_sha256": "74a4eec7e7f259d1408aea270de33b55405d7c95b4f2528c81485e35df75a74d"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/models/value/mlp.py",
+      "destination": "src/sit_lmpc/models/value/mlp.py",
+      "source_sha256": "e9f83c5d40dcab9a91529560e1385990cbba9bdc03b0a5f6bb46cda4beb0bbbb"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/models/value/__init__.py",
+      "destination": "src/sit_lmpc/models/value/__init__.py",
+      "source_sha256": "73697e6bc73b84aed2a94014f98d4521b3494b8b599b46686ef9d2818487f385"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/data/experiment_checkpoint.py",
+      "destination": "src/sit_lmpc/data/experiment_checkpoint.py",
+      "source_sha256": "40cd3adf0338215e29cfd5d9c6ed0dd249d83401dfc427d48eaa6da621b4c466"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/data/checkpoints.py",
+      "destination": "src/sit_lmpc/data/checkpoints.py",
+      "source_sha256": "9b21210a89c50a7dbc3e20237f61314a9e0c3dc4ceaca3d92d33a7bf077e7f74"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/data/dynamics.py",
+      "destination": "src/sit_lmpc/data/dynamics.py",
+      "source_sha256": "e6b21eff30dd5b58d51b9ed5f5b1e0fc6ca76d535324958ff17d4aafe3e8ed82"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/data/laps.py",
+      "destination": "src/sit_lmpc/data/laps.py",
+      "source_sha256": "260ccf96580e5428a7fd7363b156799e18175cb6b8470bb51ed94357e52cdc39"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/data/initialization.py",
+      "destination": "src/sit_lmpc/data/initialization.py",
+      "source_sha256": "05516f0fb65d5bd71c9931c45cf64edc3ac08a74ca585f9f5baffb2a80bb7fa5"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/data/partitions.py",
+      "destination": "src/sit_lmpc/data/partitions.py",
+      "source_sha256": "529c32216efb63ec4f637ee3757e1382b86bed7ea98f99d5cc3f9fb91999d24c"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/data/normalization.py",
+      "destination": "src/sit_lmpc/data/normalization.py",
+      "source_sha256": "ebcb10ebb154d4b628e949a258ea66ab1352ee87f158cf5c8db0ff593bbd23cd"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/data/trajectories.py",
+      "destination": "src/sit_lmpc/data/trajectories.py",
+      "source_sha256": "877bcd36ee1fa5271e785155c9f0d23380264a2e164555e98c14b65ce6a04ac6"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/src/bro_lmpc/data/__init__.py",
+      "destination": "src/sit_lmpc/data/__init__.py",
+      "source_sha256": "08c1ee9d8f72ca13100240a21429fdfe568241ae1f7949ca54d41dc75032a2ca"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/cli.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/cli.py",
+      "source_sha256": "66be189d190b36ee75e85da4a8054960c7cb4471c6181c2c179f22d54edea6ca"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/__init__.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/__init__.py",
+      "source_sha256": "b71c2b5cd269e09f500c6ce96a7f98aa75947e380ad7889206697e49ad1879a7"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/config.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/config.py",
+      "source_sha256": "e0e6025e29e62f36710e99f2002dae703e560b7bac83d75144fe0552229fe4bf"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/training/trainer.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/training/trainer.py",
+      "source_sha256": "ccaed26d45decab85115e2fdbae0b6a3d9b2e30229241c12c5d3bcdc51b7886b"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/training/hierarchical.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/training/hierarchical.py",
+      "source_sha256": "061901dbf1e727428fd0577acef649d4a05db26637dc0643f35e1658f627b561"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/training/population.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/training/population.py",
+      "source_sha256": "a44fc1ec3b297a7494f924f24cd719bd0884dfc839070346beb46ccb2f5ece2d"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/training/__init__.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/training/__init__.py",
+      "source_sha256": "7a1fd87436cd5ae231242bdfb9efbad634c18500239a849abc7ca9773781d708"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/training/rollout_validation.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/training/rollout_validation.py",
+      "source_sha256": "6cf1c775cf9ce1c19ddf8dafa86e7a87fc91020cf689c152e017d91a98eb5dd0"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/training/objectives.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/training/objectives.py",
+      "source_sha256": "2432d6071916031ec1bb4b2647f08c43dcf517f191a9522a9b7c8b5cce241bb0"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/adapters/bro.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/adapters/bro.py",
+      "source_sha256": "6c2f4a454b019defa0f37b66817a50a1e8f9d38951c46ee1d04bee8c6b04bf85"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/adapters/gym_st.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/adapters/gym_st.py",
+      "source_sha256": "3f6e6ccaf6bf7eaa25ae332c01dc87cdc74a387f1cd0b59d3ee1e7a3d480ec19"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/adapters/__init__.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/adapters/__init__.py",
+      "source_sha256": "b9107eec9402e99c367bdc96abcfe5acb7a513a2919ec9905039a00d8b0ed2c1"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/adapters/mujoco.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/adapters/mujoco.py",
+      "source_sha256": "9eb792b94c8c4fe7f4755c04cad60795ef391046b289624f5b59a701889c00bc"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/domains/base.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/domains/base.py",
+      "source_sha256": "3ff6ecf644e3c88a82c73b63891e87e4712ed62508e1241f928877e4f1a84797"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/domains/__init__.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/domains/__init__.py",
+      "source_sha256": "dbe7be50f76540aeb7bdd32be64a27a90c88cdcf7e7385754d9df1deb0379e26"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/policies/sac.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/policies/sac.py",
+      "source_sha256": "5b19b2ca041a8a10e81f3763a8b3563df482488d08690ffa9d24962b7806c2c6"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/policies/__init__.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/policies/__init__.py",
+      "source_sha256": "08d15563b4224b61472206f0cad6d4e542eab77cedb772b9173db2cbd621d472"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/io/dataset.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/io/dataset.py",
+      "source_sha256": "2ae7e843a860654acc72a9d1dbe60fdce58e0742c3e22643d70609aa7c040ad0"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/io/common.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/io/common.py",
+      "source_sha256": "2319f17d2c8abd15c73006e47d18f90a80fa344c49bdb865add4b15c5dd82056"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/io/checkpoint.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/io/checkpoint.py",
+      "source_sha256": "26d4285713ade37184437f57687b54d27dfe0508f4b5fd2e3ba861bd1578f63f"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/io/__init__.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/io/__init__.py",
+      "source_sha256": "b3ae9e54337df03cefd74fcc336af22fc71aabf0c99f38d6abafa0db2e002ffc"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/inference/online.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/inference/online.py",
+      "source_sha256": "e410d7f56e7af12143fa2a6736d6aba54becd0fb4ba3e3859d9d928736616162"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/inference/posterior.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/inference/posterior.py",
+      "source_sha256": "1edfdf20bfe9c30f6c55a86869ad589cfe90c4f4c1cc95855aa7a79d2a0ef7a1"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/inference/hypothetical.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/inference/hypothetical.py",
+      "source_sha256": "af13d6cb6f105a7c7323946436bf9fb862df58d6a47e007a30a2444e8df06077"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/inference/__init__.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/inference/__init__.py",
+      "source_sha256": "de1dd52ab71469847bd9f1665ab1e9937ee5047bac2fe689b1a4024ed8016377"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/evaluation/trajectory_sections.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/evaluation/trajectory_sections.py",
+      "source_sha256": "c5fb904e02a07c93151538c3ae451e672bffc8c19c8c56cfeacf1aa8dd9eb364"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/evaluation/evaluate.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/evaluation/evaluate.py",
+      "source_sha256": "c94ffcdfcbe338f8b118fc60fc13a6ba245c6b8f33a90cde6fa489594f1c6a36"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/evaluation/plots.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/evaluation/plots.py",
+      "source_sha256": "7d24287067ed31c4c1d064792fcfa2e2959b364703f4cde40f18e9c196ff87eb"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/evaluation/baseline_recheck.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/evaluation/baseline_recheck.py",
+      "source_sha256": "a47672e1d21e1bf4f526e941e28d9634fa1f2d43e995896d2523d58b8ec9c70c"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/evaluation/dataset_sizes.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/evaluation/dataset_sizes.py",
+      "source_sha256": "08f9d9a6740409982a3f15521e1767a7281eb8d7ae689378a0ef66e2c5503f73"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/evaluation/latent_sweep.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/evaluation/latent_sweep.py",
+      "source_sha256": "8b3acd4a58b6e8a20de5c1134b72a9b4f99e37a4d7d6ae6fb6c7d618ecc7c5d5"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/evaluation/vehicle_bnn.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/evaluation/vehicle_bnn.py",
+      "source_sha256": "2f0af0fb06806881c9db23e3c2eef38a150cd8fef9243e48bce96508e2f13758"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/evaluation/vehicle_bnn_summary.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/evaluation/vehicle_bnn_summary.py",
+      "source_sha256": "525fb5908ef1d4a368e34a6657275988a8aad5c750ccc7016e5cf585597ec5ed"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/evaluation/vehicle_bnn_plots.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/evaluation/vehicle_bnn_plots.py",
+      "source_sha256": "d2bd9152968461f3f8da30d638e4a64873352f5a489936658525b823d25390a8"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/evaluation/__init__.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/evaluation/__init__.py",
+      "source_sha256": "6be5a8896ea0004feda892f6e7c177a12fe90893b61312f80836f9740b057f85"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/evaluation/training_options.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/evaluation/training_options.py",
+      "source_sha256": "f7e3df920656f0c611973e1619e1b4f6a74bb4086885605a3d9e1967b40dee80"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/evaluation/vehicle_mppi.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/evaluation/vehicle_mppi.py",
+      "source_sha256": "8099485410328b40ea1473336e703ba4b69041ff7722d8515b1bda748e0fefb0"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/evaluation/vehicle_mppi_plots.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/evaluation/vehicle_mppi_plots.py",
+      "source_sha256": "69fefa13c475ccc6e067c38fdd221e777c111f2496a8ca3764b851a0a984fa0c"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/models/gaussian.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/models/gaussian.py",
+      "source_sha256": "5277e02f37f1f3294d03a8c54cdda328a275e2f11e5dbf8d74f768a41acf746a"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/models/prior.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/models/prior.py",
+      "source_sha256": "f42672802de9759527c1310e2b50438dc082344911f7e1bc91ff8a8e577724c3"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/models/features.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/models/features.py",
+      "source_sha256": "e036fc2fb7b68875b55fbb7e73d5b4d4626aaef5d9e9856873619775c853ac1a"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/models/__init__.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/models/__init__.py",
+      "source_sha256": "b18caa5e15f0dac9ef8b02433d05f9f099bb968f219b542b47cbd95e18388e6e"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/models/profiles.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/models/profiles.py",
+      "source_sha256": "197e9a61db6be7fae4892c28d1b44a9f80a83e93062b67a1994f28d7b77d9586"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/models/st.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/models/st.py",
+      "source_sha256": "3adf5078681381a21ee130bcc8cbe19c1ac60a60eeadd4e8ed78b0d8d6c1613a"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/data/vehicle_population.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/data/vehicle_population.py",
+      "source_sha256": "c9a85c157d853b15368cd3ce2b2c06d43a47d37240ae2d4c616c042cd37655ef"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/data/collector.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/data/collector.py",
+      "source_sha256": "74976803b923178d2a624b9cf2108b15eccbb862d475fe5669e587cdbb6d2f95"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/data/trajectory_recorder.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/data/trajectory_recorder.py",
+      "source_sha256": "f076af252304767bb8283346e2afd4e041af4e28fd4d879160c25e08cb6b635b"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/data/original_vehicle.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/data/original_vehicle.py",
+      "source_sha256": "733e4ff2fa7eac6143bc9499d604cb34f5107b01ef60e9571b18668d35cb9fdb"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/data/vehicle_study.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/data/vehicle_study.py",
+      "source_sha256": "f2cb7fb7aaddf5c02b1931110241b4ec868ae5cef7c3029d6a2d6c23c1b144de"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/data/schema.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/data/schema.py",
+      "source_sha256": "4fb25c767c40c0bb19bed36d28a647daabcb1784c5b656cb62c3ac7235ba5a69"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/data/__init__.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/data/__init__.py",
+      "source_sha256": "466e9cb8df0b49c15317308ae982b8645755f082e232197f86298b778dc7906c"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/data/vehicle_collection.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/data/vehicle_collection.py",
+      "source_sha256": "bab8cc416bed520317d6d075f0e36d3c39927b10f065526c8d0068bd8e6635e3"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/data/transforms.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/data/transforms.py",
+      "source_sha256": "da4a3cd14d33c226488e73c72259ca4a5176f7717ff2ee36171d0f01696e998c"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/environments/dm_walker.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/environments/dm_walker.py",
+      "source_sha256": "a5bc2b830ec62edfa1cfb31c6ec8d5a9993b92cabb827381495f125cdf4760ce"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/src/dyna_dist/environments/__init__.py",
+      "destination": "vendor/dyna-dist/src/dyna_dist/environments/__init__.py",
+      "source_sha256": "84e5d1bf443a3552679aae3a78290f71766f136dec0d8c8fb5ad68d4798a59f9"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/pyproject.toml",
+      "destination": "vendor/dyna-dist/pyproject.toml",
+      "source_sha256": "6a90080ba48323f416b3b8e3ba3ea0e319fa96f4107a32cf47c642dbe6bcbfb4"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/README.md",
+      "destination": "vendor/dyna-dist/README.md",
+      "source_sha256": "c3bbee06d219987aff489a4ed17f0b3a6fda987ac6cd0acfdf3645a1bb0af3e1"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/LICENSE",
+      "destination": "vendor/dyna-dist/LICENSE",
+      "source_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "source": "/home/lucerna/Research/dyna-dist/NOTICE",
+      "destination": "vendor/dyna-dist/NOTICE",
+      "source_sha256": "6d2dad3c14d1491d5bbc65841e439cae8f36b214e5b8ac116b8d5f32c4029367"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/__init__.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/__init__.py",
+      "source_sha256": "01e6d74941fdf10c49d49270b86e3bf58360c694688529ba3ca2414af32f11f7"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/collision_models.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/collision_models.py",
+      "source_sha256": "62ed262d010f9cd43b26a3d0596fb62e325372491db6a19cc9904a4cef1e5233"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/f110_env.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/f110_env.py",
+      "source_sha256": "0a4b7ad54110db6a4f8153eae08df169fcf86c5052a56cfa4325611a5c28c76a"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/observation.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/observation.py",
+      "source_sha256": "c6102a111e1d187c8e1b19c1d317611d6b265198b5012758e87d469f0b2a0a9a"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/utils.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/utils.py",
+      "source_sha256": "785625ea5a06890274ede630c29c1ef54e870c9e3cbc44c220a39100bcb584e0"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/integrator.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/integrator.py",
+      "source_sha256": "f5375e4a069f494346d68914dea6f8be3ddc23262005a1c7e639d45dd8fb3ae1"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/__init__.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/__init__.py",
+      "source_sha256": "14c31c095d09229593898173eda55cb9317d874fdb9627118e75ac0778b994ae"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/base_classes.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/base_classes.py",
+      "source_sha256": "cf0c304b3eb65d9466383098632f0c62b0d0229dcf7463eb882f76bf68025fe7"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/laser_models.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/laser_models.py",
+      "source_sha256": "aa5caf20572daf8d8d0eedc238aa819b5d049bc208c3adb4a4035ab6560c5599"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/action.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/action.py",
+      "source_sha256": "cd792a0d572ad3a042ed67da4ad29977048201c13557948ab5a69d074804f1d4"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/track/track.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/track/track.py",
+      "source_sha256": "3ae949536c745f5de07fa3474c20f3e68c05321f6f921a3063c3b3f1371882a2"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/track/cubic_spline.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/track/cubic_spline.py",
+      "source_sha256": "9ba843be9cf80a9f764f86e8855e6b30687bf40cc84a166cabc25a8a3c69b9f4"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/track/utils.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/track/utils.py",
+      "source_sha256": "300ea0e776d138daba7095fa64a3b13db8027df547cd633ccf4ed4035ad8cc85"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/track/raceline.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/track/raceline.py",
+      "source_sha256": "34f81cae3c69b3c71da8949d08690ffa9162256338e3f9b70f741a07e8e160be"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/track/__init__.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/track/__init__.py",
+      "source_sha256": "87ebf3cfc5033a5483c6b6b960a4ee095dd82f0a0f0a56f959ab781d9f98ff85"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/reset/reset_fn.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/reset/reset_fn.py",
+      "source_sha256": "e2bd036dd145ae3e1afb0057b2d69f6a1a013303547d360ee8e5b7b8358d0e83"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/reset/map_reset.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/reset/map_reset.py",
+      "source_sha256": "91f334c5602fcecf71de6ff4e8cc24a3095475b51f43cab36967dbac88d5b48d"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/reset/utils.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/reset/utils.py",
+      "source_sha256": "28f769b7da598ed696e0dc0b62fcd6f3d4bd291501490d0e0215488c7b5907c4"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/reset/masked_reset.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/reset/masked_reset.py",
+      "source_sha256": "3eead9b0bde26666ebea6233ec6036566c17702968f1e5e06b1db4b637fdbed9"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/reset/__init__.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/reset/__init__.py",
+      "source_sha256": "5c6ca8249325220d21ad0cadaec502a4bffa256da900bb909b39b735b141932f"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/dynamic_models/utils.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/utils.py",
+      "source_sha256": "62e14653995c39c4a6ef198126f5b6c54ed482fd3b570c6df322bb29148d237e"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/dynamic_models/single_track.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/single_track.py",
+      "source_sha256": "6f8ac46520398501bcfb1a1b8284aa7b2edb99551bf59f4dd0b4f16156b9cb52"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/dynamic_models/kinematic.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/kinematic.py",
+      "source_sha256": "2bcc648ad2bc5acc596260fb2d7659de2a67193b3b2104fff26124f6cb72416b"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/dynamic_models/__init__.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/__init__.py",
+      "source_sha256": "1c2ab9efb563e624da70533d23c6f028ef9a04c20f0585f77da01765fde9965c"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/dynamic_models/multi_body/tire_model.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/multi_body/tire_model.py",
+      "source_sha256": "2a78e384fa0f6ed76b1883487f217f13716d98b8321909cdb08553d3aaf56f02"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/dynamic_models/multi_body/tire_model_old.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/multi_body/tire_model_old.py",
+      "source_sha256": "5c845c830b00e6a4668bf885fd86fbdf7606623527e8cb29091e7dbc5f9dcf15"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/dynamic_models/multi_body/__init__.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/multi_body/__init__.py",
+      "source_sha256": "b309eac5d26f175bf9807ed6f59db9d9036e73316e27f0bb2eca6f8cc17507fb"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/dynamic_models/multi_body/multi_body.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/multi_body/multi_body.py",
+      "source_sha256": "965e580681d72aaaa47623393650285672caf101b6dbe13fa24c92384f0df994"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/rendering/pyqt_objects.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/pyqt_objects.py",
+      "source_sha256": "c2c928843e0ca10ffb223dba5212ccad44f3189b80b0f5e86a85131b8b4cd49f"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/rendering/rendering_pyqtgl.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/rendering_pyqtgl.py",
+      "source_sha256": "442a769e35cb947954f114f88c54ae54bc030b772c2329a7345759f22ec596ef"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/rendering/example_mesh_cyber.obj",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/example_mesh_cyber.obj",
+      "source_sha256": "49e69fa694a72ec902a7c7943f3a56aa44e665e085bae062941bb213b0bfd35a"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/rendering/rendering_pyqt.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/rendering_pyqt.py",
+      "source_sha256": "ba15cefc63c8e486b6f0d3a7d9b2e7d243ab3adb3969b3135a082c07df37d5d5"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/rendering/renderer.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/renderer.py",
+      "source_sha256": "9c376377214c43ce9170bb00377e83d3ab6b8b8a9fa1779e2b5755d5ed873f17"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/rendering/pyqtgl_objects.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/pyqtgl_objects.py",
+      "source_sha256": "9a28aebfab417eb26ae1f2d2d46482d9fc64c1819a667398252db10077645466"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/rendering/mesh_renderer.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/mesh_renderer.py",
+      "source_sha256": "19c1984a3241f6d20132049523c5869a3346c89feb7e55b389642d1402d3ee39"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/rendering/__init__.py",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/__init__.py",
+      "source_sha256": "616be9d926da3b899d4e88295c7a1adcb4a290074c29488de48608b9edd2a67c"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/f1tenth_gym/envs/rendering/rendering.yaml",
+      "destination": "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/rendering.yaml",
+      "source_sha256": "a49aee79f9160b21d2d05b1847c4b151e4816e98d66431d3c821816dfbdf3e44"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/pyproject.toml",
+      "destination": "vendor/f1tenth_gym/pyproject.toml",
+      "source_sha256": "4c4a6c4eb308bdd0c35f737f0269caba51909e20097540c0dfbb4b2b09c1da8c"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/README.md",
+      "destination": "vendor/f1tenth_gym/README.md",
+      "source_sha256": "7a1c8905ee98c921499b09f024be3b30e1160a5183ee67c4277e3f10a8b5cc58"
+    },
+    {
+      "source": "/home/lucerna/Research/f1tenth_gym/LICENSE",
+      "destination": "vendor/f1tenth_gym/LICENSE",
+      "source_sha256": "f97d9b8a0d287aaa156d52677f8d4aad3bb5050ffbfc03ad99242350a3fc256e"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/plotlyutils.py",
+      "destination": "vendor/utilitySuite/utilsuite/plotlyutils.py",
+      "source_sha256": "7249d81fc318252a543bfc3334d4fb34f9711cc68c8ab3b10c5689c278093af8"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/utilitysuite.py",
+      "destination": "vendor/utilitySuite/utilsuite/utilitysuite.py",
+      "source_sha256": "92b4a2277f5a08a04147cd4863a49b43855d6f7d4bc57f79a96d33403baf316f"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/generate_init.py",
+      "destination": "vendor/utilitySuite/utilsuite/generate_init.py",
+      "source_sha256": "daabf475427dc979e2a63d03b0e05175c72d74594e7f48437e7f082f24c406ff"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/timer.py",
+      "destination": "vendor/utilitySuite/utilsuite/timer.py",
+      "source_sha256": "fbeeb86c6b2906d0862884c0a35703f05a61de757cd05495e6b8924af4210836"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/configyaml.py",
+      "destination": "vendor/utilitySuite/utilsuite/configyaml.py",
+      "source_sha256": "10b622a2c0a63b47201f4e719aa7495f4afb604a74066d74e49f418c04951065"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/qtmatplotlib.py",
+      "destination": "vendor/utilitySuite/utilsuite/qtmatplotlib.py",
+      "source_sha256": "d0a4f050cf948b0becabc0488bfa454f471fe31d9420d3fb1c053ab75cd98ab0"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/keymonitor.py",
+      "destination": "vendor/utilitySuite/utilsuite/keymonitor.py",
+      "source_sha256": "bf474ffe6e6b15040ead9f9c3d033e6a9565d4be49ac17e4eb6193e0d45a13c1"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/misc.py",
+      "destination": "vendor/utilitySuite/utilsuite/misc.py",
+      "source_sha256": "7fc9d92fbfff378e333e3aea509f6c2fc41c91f4cdd0ade66ec236d3db14cd67"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/pltutils.py",
+      "destination": "vendor/utilitySuite/utilsuite/pltutils.py",
+      "source_sha256": "c6175fe715d71f442d64846d0192332374cc34e16a162e76b1509429adf0552a"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/dataprocessor.py",
+      "destination": "vendor/utilitySuite/utilsuite/dataprocessor.py",
+      "source_sha256": "5f10c840873e468b529b4229c5740b77c6641f5df5fb49958b50b731ec5029a8"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/rotation_utils.py",
+      "destination": "vendor/utilitySuite/utilsuite/rotation_utils.py",
+      "source_sha256": "873c186c4d32f6c9d4545832815237b9be464c1365bc68f9306eb23d5935fdae"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/jax_utils.py",
+      "destination": "vendor/utilitySuite/utilsuite/jax_utils.py",
+      "source_sha256": "f8e36b00db62dcff9ec1e93525599646a8b2bac6f90fb9b6d5cc49c93a93a253"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/listdict.py",
+      "destination": "vendor/utilitySuite/utilsuite/listdict.py",
+      "source_sha256": "05c48d7e738455bb29f6415f052a23118fa0de593ef448c7d9a32eb40af8d56a"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/__init__.py",
+      "destination": "vendor/utilitySuite/utilsuite/__init__.py",
+      "source_sha256": "8676fc96d02078a47730f23502f302a3ea18ea79075029fa3cf3ab8ea7442570"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/torch_utils.py",
+      "destination": "vendor/utilitySuite/utilsuite/torch_utils.py",
+      "source_sha256": "5aecaea555457dc922076ccc402d72f51265a10dc86c3b8031480ed35433e9d3"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/open3dutils.py",
+      "destination": "vendor/utilitySuite/utilsuite/open3dutils.py",
+      "source_sha256": "4fa3afc5af764b97a18b39bcd2194538cd9b4e6752cf5533d97b940d0d6a7405"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/logger.py",
+      "destination": "vendor/utilitySuite/utilsuite/logger.py",
+      "source_sha256": "4a3a7f3d7a70374798f68902d7cf5b163cb04b7b4854afadef20ed0222803865"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/coloredtext.py",
+      "destination": "vendor/utilitySuite/utilsuite/coloredtext.py",
+      "source_sha256": "ce1205031fef42ecb4bb400179a341d7e62152cdb07b4677e115f1c97bfeaa21"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/utilsuite/colorpalette.py",
+      "destination": "vendor/utilitySuite/utilsuite/colorpalette.py",
+      "source_sha256": "46993eeedd14c12e781e1c959d58e59ba52d6f645998d74402c8174a83d37619"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/pyproject.toml",
+      "destination": "vendor/utilitySuite/pyproject.toml",
+      "source_sha256": "7845530eceef3d3da32bd210e35c7046540c25c11ce0fd92c3b4fbcf364ebd11"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/README.md",
+      "destination": "vendor/utilitySuite/README.md",
+      "source_sha256": "642f10166f22a16e2249740d1abda915bbecba63c32d7799da63d2581deba5da"
+    },
+    {
+      "source": "/home/lucerna/Research/utilitySuite/LICENSE",
+      "destination": "vendor/utilitySuite/LICENSE",
+      "source_sha256": "0b719bcb52506853ee2002e82643018b5a62a6c7ce40849dcb9f10c9e0994130"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/LICENSE",
+      "destination": "LICENSES/Apache-2.0.txt",
+      "source_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/NOTICE",
+      "destination": "NOTICE.upstream",
+      "source_sha256": "f1010edd6ec94e667435a5ad43bb4e168e8b1bf43b926a2fff009ecf85aa1857"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/.python-version",
+      "destination": ".python-version",
+      "source_sha256": "02e735b3dfe1c32833eb550b7ff8ffa17f5f2bc3fa1e7bae61a8f5a3883ce398"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_config.py",
+      "destination": "tests/unit/test_config.py",
+      "source_sha256": "7b6b48c9a2d3a6cba1e398d8e7c81e454c05d744dcef670a9b5c22fb88dae6d9"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_control_optimization.py",
+      "destination": "tests/unit/test_control_optimization.py",
+      "source_sha256": "fbd8b7bd5e3fa9f78cf2c5acd39e2dd79f71b0572b8f2595c3424ff2ce1ed401"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_data.py",
+      "destination": "tests/unit/test_data.py",
+      "source_sha256": "657c8f06ea54a6b6c0f4c83dba5da5c1035e69ab4c2db94b2ed29c5ff87f7354"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_dynamics_belief.py",
+      "destination": "tests/unit/test_dynamics_belief.py",
+      "source_sha256": "66b2aee5d539fd7a96578001bd85f156e1a590ed5244d932cadc2e88427fbca2"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_ensemble.py",
+      "destination": "tests/unit/test_ensemble.py",
+      "source_sha256": "02e23ba083628c7ea96f8c29a31f424b37d9a9ef26ad529f5ffd74e565cc5cba"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_ensemble_fit.py",
+      "destination": "tests/unit/test_ensemble_fit.py",
+      "source_sha256": "1db0536c0317735acd3ca3f44c8ec5185072af9251b1785cec14fa660b2b1d91"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_endpoint_actions.py",
+      "destination": "tests/unit/test_endpoint_actions.py",
+      "source_sha256": "705abc3508e1437c6a17e1b064970e078dc7e02fb81aa8216df8037526c5647d"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_events.py",
+      "destination": "tests/unit/test_events.py",
+      "source_sha256": "6300ef5cf6508b8892a0f9a72633a34b90d84716dc3443de0d1137852e908461"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_experiment_checkpoint.py",
+      "destination": "tests/unit/test_experiment_checkpoint.py",
+      "source_sha256": "84e32dbf352fed943a240a7b3c2ad7e624931cbf79b508923887520adcec2579"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_finish_line_learning.py",
+      "destination": "tests/unit/test_finish_line_learning.py",
+      "source_sha256": "09b0f2163c3f6818e9e59cab9f9199ebdb59812e70f2d5c49aef39c2ec43c0dd"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_friction.py",
+      "destination": "tests/unit/test_friction.py",
+      "source_sha256": "4e254853a0fe073419225362380f65f6fba8d5d38c5fd02383f55327df3c742d"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_gaussian_bnn.py",
+      "destination": "tests/unit/test_gaussian_bnn.py",
+      "source_sha256": "f15bec4319c6e232832e4d49c82473960e953a1fef9f0a993553b0e79b26f2e4"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_bnn_belief.py",
+      "destination": "tests/unit/test_bnn_belief.py",
+      "source_sha256": "60aa1cc1115abd84370b3778ad7834d99f191e3dd7863df3b6e8f5022fe6bbda"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_bnn_calibration.py",
+      "destination": "tests/unit/test_bnn_calibration.py",
+      "source_sha256": "b6ea225bba347c37d62760919a23c3eef04b1b180f2ead8cfd44c7d577080d0c"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_hull.py",
+      "destination": "tests/unit/test_hull.py",
+      "source_sha256": "c87e98f834e6a278d12714e0c4f84444658970b4431b404c50b01549948ffd2a"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_imports.py",
+      "destination": "tests/unit/test_imports.py",
+      "source_sha256": "b58a5fd7fd8caf9861d801fd1e60936738abd73f9a1800f4e23c533f18ed666b"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_lap_metrics.py",
+      "destination": "tests/unit/test_lap_metrics.py",
+      "source_sha256": "d80d979d3a01df85a73d6d814df36a2c8de255a4dfda217ed7817e129fcddb67"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_lambda_preference.py",
+      "destination": "tests/unit/test_lambda_preference.py",
+      "source_sha256": "49737e211c93046361979d5b8c98f08f5d28c1cd30496e0d8592009735df4f6c"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_learning_config.py",
+      "destination": "tests/unit/test_learning_config.py",
+      "source_sha256": "c86cae47c14db9ad3ad52b4e30bd762e7ced3295f523f20062dc66f96ae8def8"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_model_bank.py",
+      "destination": "tests/unit/test_model_bank.py",
+      "source_sha256": "0d3e8b650092f0a7ec717edefdd2aa194f631ca70a4ac657e49886e2b2b6b64d"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_model_bank_fit.py",
+      "destination": "tests/unit/test_model_bank_fit.py",
+      "source_sha256": "a608a5747d50005be4e80338f2a9663329e4d6cda48810dd611feeb6cec6b59c"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_nonfinite_controller.py",
+      "destination": "tests/unit/test_nonfinite_controller.py",
+      "source_sha256": "5a779e49927cb6fbeeac3518d6186199a9a266666a7ce4c73d2846f42c3aee48"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_output_naming.py",
+      "destination": "tests/unit/test_output_naming.py",
+      "source_sha256": "fcb35835e1c53cf22f064313234821c7879fb173c0d92b76095caf18613250bc"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_precision_runtime.py",
+      "destination": "tests/unit/test_precision_runtime.py",
+      "source_sha256": "53a90fda71ba67802a66843a92dacf8c4a3d33754300f882b7d129f86815dc07"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_probability_safety.py",
+      "destination": "tests/unit/test_probability_safety.py",
+      "source_sha256": "ebda0af1c1372dccdd7e946317452df381593e6a27b6abbe101bfcfd0355fc8d"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_restoration.py",
+      "destination": "tests/unit/test_restoration.py",
+      "source_sha256": "98b21fb9c293e5b96bffe3c5d55a2e2a073e48282df7c74b5f726519ec0032ac"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_stage4.py",
+      "destination": "tests/unit/test_stage4.py",
+      "source_sha256": "6f18549ec3073814abcbdcc730fd5292512939d0e4b5669825f9b41d3c8d164d"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_track.py",
+      "destination": "tests/unit/test_track.py",
+      "source_sha256": "0725284fb4964b67bcb90c4fcd66467fb1dc27126fe9e6f33a174aa3280162fd"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/unit/test_trajectories.py",
+      "destination": "tests/unit/test_trajectories.py",
+      "source_sha256": "f6b588db9f3321fae2e31f40df67d3de5971b9e5aa474be0866e1fea22570ae1"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/integration/test_stage2.py",
+      "destination": "tests/integration/test_stage2.py",
+      "source_sha256": "62cb0e6ab236a987e649611d4115e236dcd53f5f331e17656a8b1d287efea88e"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/integration/test_stage3.py",
+      "destination": "tests/integration/test_stage3.py",
+      "source_sha256": "ab10fe9f726a31dbf621f19237ff93711c861462704fc15e8ff5691c84aff965"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/integration/test_stage6.py",
+      "destination": "tests/integration/test_stage6.py",
+      "source_sha256": "d4f85c33517430d807846c9226162be996b7d566af885e4bbe02fc1a24d2ceee"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/integration/test_bnn_posterior.py",
+      "destination": "tests/integration/test_bnn_posterior.py",
+      "source_sha256": "e96be48f751e7e9b7191e0d32b14cfd2a9e46d017b0e4f8af80aeaee84c2bffd"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/integration/test_simulator.py",
+      "destination": "tests/integration/test_simulator.py",
+      "source_sha256": "0cae92dca9bb20f5e5bdda4725ac259aceb1379699d52522de4cdad3bac2de17"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/integration/test_experiment_resume.py",
+      "destination": "tests/integration/test_experiment_resume.py",
+      "source_sha256": "3f5890bfd8258ae54a9fc6e2a5c31b1e4a342cb445904718311c30995b1aba08"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/integration/test_partial_lap.py",
+      "destination": "tests/integration/test_partial_lap.py",
+      "source_sha256": "26a6ee109a7e3f49036874523a17a419b89e19eace28c382625155f8e426c96a"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/integration/test_value.py",
+      "destination": "tests/integration/test_value.py",
+      "source_sha256": "dc669c3e63178106d1eff0430d2a05d97fbff4dc3b9c6e8ab2a5f626799addc5"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/integration/test_mlp_value.py",
+      "destination": "tests/integration/test_mlp_value.py",
+      "source_sha256": "1b6f33ae2c3af197ae4cc78ca84a5a04d6d0f0658b693480e10ab90a3e16a6d0"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/integration/test_gym_mass_variation.py",
+      "destination": "tests/integration/test_gym_mass_variation.py",
+      "source_sha256": "a9508dbce1fafc2590d86fab2ac7e348d493bab0545e51af8af5a3c28ed6f1cd"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/integration/test_restored_plots.py",
+      "destination": "tests/integration/test_restored_plots.py",
+      "source_sha256": "5e829cf78e60b03acbc5d293c5211e7480f609951515d530fd06f46e04a02d76"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/integration/test_keyboard_startup.py",
+      "destination": "tests/integration/test_keyboard_startup.py",
+      "source_sha256": "c075fe8db553c09af44504508f8cac46747f1b7a467eccfe59c2c23e89af664e"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/integration/test_model_comparison.py",
+      "destination": "tests/integration/test_model_comparison.py",
+      "source_sha256": "5423792b24460f8b9aa523d8cbb60f56fd440b0984dfdda4ca1c1ac3695a17d0"
+    },
+    {
+      "source": "/home/lucerna/Research/BRO-LMPC/tests/conftest.py",
+      "destination": "tests/conftest.py",
+      "source_sha256": "ec4e469f740098d33e5e28feb2963b6bcf73f95f01b553de2cbca7e6d0ce4f84"
+    }
+  ],
+  "excluded": [
+    "Walker",
+    "historical results and sweeps",
+    "legacy GP module",
+    "environments and caches",
+    "Historical benchmark-only test_bnn_update_ablation; benchmark campaign not migrated"
+  ],
+  "source_repositories_preserved": true,
+  "source_unchanged_verification": {
+    "checked_files": 259,
+    "changed": [],
+    "missing": []
+  },
+  "destination_sha256": {
+    "src/sit_lmpc/__init__.py": "5bd175c72a6c4460221670e1c759509852b3eec7d59b1b190ceedff7016e7163",
+    "src/sit_lmpc/dynamics/distribution.py": "a3c3d2f2a32a64f0310371df1eaa5c3d2fc6bd6b1094a975de39c0885e3f4034",
+    "src/sit_lmpc/dynamics/model_bank.py": "41861a570456e0b01ef9b9d661bec5bd8494f406adc0d851109aa7edc8daa154",
+    "src/sit_lmpc/dynamics/bank.py": "35620b000f06ea62f50d886eb105c9e71478f46e7844000684dc441f92e219a3",
+    "src/sit_lmpc/dynamics/gaussian_bnn.py": "4f396834e19b2baab8fe9dabe56ef5d99c1f1a21b34b4e24a50ec23e81fa6a3e",
+    "src/sit_lmpc/dynamics/physics.py": "22f341da2cef18ab28cc1c2ed74621d09492d6aecd31c4e5c5e682af86039290",
+    "src/sit_lmpc/dynamics/__init__.py": "578f5eacd220bdf80e1414ea21937cbba99abefa4ddc7c157b32fbeebfde196c",
+    "src/sit_lmpc/dynamics/ensemble_fit.py": "3dd981917a1181b4916e3fd11f0bf33aff01ad74ddc0f4fac12ae02bca6d0e44",
+    "src/sit_lmpc/dynamics/ensemble.py": "1246f5dfc45f43c29cd19ad8e4880a8d54eb7f0250f3f7a0fe484765b44acc77",
+    "src/sit_lmpc/dynamics/st.py": "6ba5678b166a23820a167d532a2bcdac1a97717786c48f84b5e01ceb6bb2f2c4",
+    "src/sit_lmpc/dynamics/belief.py": "e72cd55d78c82756f6f5ed9187d3cd7e4779131d93cc27858bf4fce80d9d5012",
+    "src/sit_lmpc/config/schema.py": "3b74f69ac9fe310f5ccec87a2e4218c57c4fc157cf62a0fe9f7a0b4081d82f44",
+    "src/sit_lmpc/config/resume.py": "43ba0b4befcaeb65c2c1fdf34560e430f4f8628119130c3719abc87fdabd005c",
+    "src/sit_lmpc/config/__init__.py": "676fe4f745b5abfe067a212bfb9b00044005f34efa9bc87cc4e1a44622f67f3c",
+    "src/sit_lmpc/config/default.yaml": "22e9f57d6f194baefa5cd1c6626861156f203a7792e321879da412e9cda82829",
+    "src/sit_lmpc/diagnostics/insight_context.py": "d3f37ca784ae24b7e8307854ed8c2ee38435d89422f88d5d74c30b7c66546ffb",
+    "src/sit_lmpc/diagnostics/plots.py": "4d8d389619c861220c8b4048475f6b9b6c52dfa4cb18895f768f8392d3bf924c",
+    "src/sit_lmpc/diagnostics/rendering.py": "fa798bda5435439bf993138294ca44c509c5ee6364442b443fcca9824f28397e",
+    "src/sit_lmpc/diagnostics/insight.py": "33296d72a5c720ed89d6cf4cfff6f0155b4981131a0155d7d16c7518825813fa",
+    "src/sit_lmpc/diagnostics/safe_set_costs.py": "e9e0ae96e3621305a9778da34e4c98115604a06195ac1b15dd109a283b1b31b6",
+    "src/sit_lmpc/diagnostics/keyboard.py": "739d725dd38d2f57cd90db7f72986c4729fbc76d55447d912cf9ce2660ec7b16",
+    "src/sit_lmpc/diagnostics/density_calibration.py": "cd23bc2980d28d0c1d0a025722fb71fbea4ccefd69527ca4c475a4989849593c",
+    "src/sit_lmpc/diagnostics/__init__.py": "7fa44be9e589b0d39498802b5098dcdada4d23c072d05545371923709016451f",
+    "src/sit_lmpc/diagnostics/native_insight.py": "c5b5caf8bc8775f5f93817c615f3d7eb477895ea16d31922c3e76c3d675ce4a5",
+    "src/sit_lmpc/diagnostics/restored_plots.py": "79a28cc9d1e140765c689d7cacb9fd048b9cc418e66d59f2a0006efb5fcedab4",
+    "src/sit_lmpc/diagnostics/model_comparison.py": "82bbc32d5f3a4027e5a8ba839a654fd514dc070d728f807acada3ec818b6fcb8",
+    "src/sit_lmpc/diagnostics/events.py": "9daf2f70555e3697fdc6bfd630aaaed9415e95d0b1505556cf7a24f04f3396d9",
+    "src/sit_lmpc/diagnostics/lap_metrics.py": "587ab9f564eef2301ad80aab70db7abc2bd7b40d44ca0ec90a74c3381165038b",
+    "src/sit_lmpc/planners/probabilistic.py": "2c075f80e0bae9f1afccc2dd3f74cd71907cd2e64c8365c6c461e3047b447b54",
+    "src/sit_lmpc/planners/reference.py": "b0cba0071727da60c6dee51febc28b7d16dccd8b2e3c7997a97989f7a63f83ab",
+    "src/sit_lmpc/planners/common.py": "4e390583bc2c43f0c2e4bd676fc742b6a843bb246d9c5ea68b3c146e05121d0c",
+    "src/sit_lmpc/planners/mppi.py": "340559ef2a5925e0dade8cad23816d1c064d891ec2438388ce091d4b13549921",
+    "src/sit_lmpc/planners/safe_set.py": "dccf4112c1f93d7522fe2db4edad5b90984a55abb9fdf49fac5742fa01433d9d",
+    "src/sit_lmpc/planners/lmppi.py": "64029cda7887213e3ce1e699ee22402bcb234313348153b47469fd474d67adb4",
+    "src/sit_lmpc/planners/__init__.py": "21382039d647a0771f524ee1e358a9fbbbee7762bb03efcb4124ea5ad67fe258",
+    "src/sit_lmpc/planners/implicit_hull.py": "596cc2875f79e4472612fd735ebecd684004a71cfc733b6bdfc595086152db42",
+    "src/sit_lmpc/track/track.py": "c70bc5b8f91352a829be18d68a1891cbf5ac8a4a0620a837cc2998d16dbf7ce4",
+    "src/sit_lmpc/track/cubic_spline.py": "31301c648474063a27e323c0e4a83f7c9790f792d49100a0fd891a4d0de8e5fe",
+    "src/sit_lmpc/track/resources.py": "a0ae4be47a706c652d6edc4602ccf06d9c3ec6373928fa8959c39832af43d25a",
+    "src/sit_lmpc/track/utils.py": "d401420edf508214bbb040fa73b1b79d845f5d101ae1c5a5a30d3776607fb618",
+    "src/sit_lmpc/track/raceline.py": "9e1fa841173f2d05415c992a28ce528a3ea23fecfaa91198143bc468cb20a97e",
+    "src/sit_lmpc/track/__init__.py": "52d4fe5164f162e7a3af72a4177bd9721c90c982ad06b7980853a3d4a8609e73",
+    "src/sit_lmpc/track/maps/Spielberg/Spielberg_map.yaml": "86c0eb7546bb035ee6e0173eddc8a2953f8c079944acd28374856f8cc245f6f1",
+    "src/sit_lmpc/track/maps/Spielberg/Spielberg_map.png": "3378ea1da231e00b4c41015311f7f3a63fb62420d8c54aaa23b6d1ca7c947e56",
+    "src/sit_lmpc/track/maps/Spielberg/Spielberg_raceline.csv": "4b79179d42e712c9121ffbfb045cd0b06689d96607ffa5701324360450d1f0bd",
+    "src/sit_lmpc/track/maps/Spielberg/Spielberg_centerline.csv": "3c690173dda7772bffc36190e6d6f0e11e61be86a65e3910cd78cdd0c098c602",
+    "src/sit_lmpc/track/maps/custom1/custom1_map.yaml": "96c48a183044f75a352983fbdeffea5c6f2bd9a4df2a69eb528f8a2c851a89b4",
+    "src/sit_lmpc/track/maps/custom1/custom1_raceline.csv": "32fcbcd6c815141622ec8cac71db04f493b76c54fb6d21253aecf0ede537b5a6",
+    "src/sit_lmpc/track/maps/custom1/custom1_w4.png": "2f55e23bdc33f6b1798e4bb98e7654bccd831eb46ec026b1a4d37e56db9fe8fa",
+    "src/sit_lmpc/track/maps/custom1/custom1_map.png": "ca2774355fed0998379f0eabf8abdf5530d590774afe42c3f7b2ceeb1c608836",
+    "src/sit_lmpc/track/maps/custom2/custom2_map.png": "6333b7d183ac4ee22e9282cbae7d739cb26404abb02108325347c59033330c46",
+    "src/sit_lmpc/track/maps/custom2/custom2_raceline.csv": "096c4fe013f308be335bb61a3bb7b0f99a7ed96ac43f6a182b96f731c2c95981",
+    "src/sit_lmpc/track/maps/custom2/custom2_map.yaml": "440a5e33d78e185b9fe486ae37d705262f2b6ad28026fe69d184ab44e096f2e7",
+    "src/sit_lmpc/track/maps/custom2/custom2_w4.png": "636e0058c1bd6fb17f48b4b2766d8279716259579db330392b46a24d7f023082",
+    "src/sit_lmpc/track/maps/tough/tough_map.png": "964411b83f15c45f7b41a62e7bf9dbde1bf95cbf68d640cd5e32f3ff6976c6d1",
+    "src/sit_lmpc/track/maps/tough/tough_w4.png": "248853a314861d754cca90f24dbc25ad62d3353ee2e77ccf31d5cedeb957eb2c",
+    "src/sit_lmpc/track/maps/tough/tough_map.yaml": "0f4f1f85988f4222d541e26f80c387f7c554bbb8282c4b7aa233bf504f14a196",
+    "src/sit_lmpc/track/maps/tough/tough_raceline.csv": "894cbcbd7e5d86617683f26cdcdcd07fe0007ffe44f5a765315603f35bcb70ca",
+    "src/sit_lmpc/training/risk.py": "cc60e2d64413a7254d5b3903c876169d00fb85c00a1f2f87dbba6c3d8e4650a9",
+    "src/sit_lmpc/training/value.py": "9f812c4291d7604e375cc6175e9ce1531530a57df2a064c8d310652055fac16a",
+    "src/sit_lmpc/training/dynamics.py": "92897a3c7f285e8e975eea8d705ab27b577f618d1c6ecd105a7bc39294a61a97",
+    "src/sit_lmpc/training/bnn_calibration.py": "1b2af1f612dd726ef5f4e4f76e29caf5f5ba45c92adb047d1747c3ab2dc77f4e",
+    "src/sit_lmpc/training/features.py": "0d65f730bcc945aea08cc6a4575b7680ab7841ee172b793a9624152b53f68e65",
+    "src/sit_lmpc/training/safe_set_density.py": "7cf815cb8581ef6d04b4dd205dbddff05af53def07c628ce0d916254ea020102",
+    "src/sit_lmpc/training/gaussian_bnn.py": "f4e60a6a6b3f36cf391d82a7d664614657eb8d5c2b7f62d31211acc1e0a5c90b",
+    "src/sit_lmpc/training/__init__.py": "fda4e950a6584fcf77a4f5e74205e5a3546bf8e21867895972894e722a260f07",
+    "src/sit_lmpc/experiments/runtime.py": "497a87e3a5980ac1f07548306de0299764ad7647a26a61db49e430ddd87c069d",
+    "src/sit_lmpc/experiments/runner.py": "e345c29b518544695366cf96a6d4259f983ea419c904d23f2d814b8bf43f4b01",
+    "src/sit_lmpc/experiments/randomness.py": "b9b0173b23c57a617bd7cb951f7b27f5ac249cb4a6c80714b7168ab012c9569d",
+    "src/sit_lmpc/experiments/__init__.py": "5bce36010bb7616eda06767d89c954de88d74c2951504e3d63f2016805b5723d",
+    "src/sit_lmpc/adapters/f1tenth.py": "4fa8fcb7bd010f99ad19e9f7fef5237cd9e198249c7b9fc69e249fa7d568144f",
+    "src/sit_lmpc/adapters/__init__.py": "f3106043f249dcae951a1d6a6c352a77ee0ee590cb5228af5971f5ff516628c4",
+    "src/sit_lmpc/cli/replay.py": "dada2949134f891d96fccb77376e57d0f229c9abf9a1b46280112ad432c2da80",
+    "src/sit_lmpc/cli/train_value.py": "60aa9235de60a040c21ecf011016fb451d58656d33b9933814f56a33415452cd",
+    "src/sit_lmpc/cli/insight.py": "0f7fd6036dad9a3b5d460e536e6f9ac298fff0d141454f1d0bcaec5ea4482599",
+    "src/sit_lmpc/cli/tracking.py": "37572a476b74775e5a1fe11f7d0479a88a463a756ef514b1b4fd670d579c5f57",
+    "src/sit_lmpc/cli/racecar.py": "a35fa94d84e4da4268688174179a2439ec5972bb229d537014259cf4b0cb8962",
+    "src/sit_lmpc/cli/import_bnn.py": "48d6be1cf1b643c622796b089f1a026ed61ea47828d8ce45bde821a65526b1ba",
+    "src/sit_lmpc/cli/__init__.py": "d18cfbcb39bc6c6623b09d2f4f28db6d07d5553980c7c7f33f5ee7647a9cbd1d",
+    "src/sit_lmpc/models/__init__.py": "cf8a0674961f06d5c80b15bbea4d67630d9939a7ee10be4eb581a4f2b7cb7113",
+    "src/sit_lmpc/models/value/flow.py": "3d94d72cd93742151f77e12f0ac8ecc7c9ea303d85d61d14c579070cc7cf0b85",
+    "src/sit_lmpc/models/value/bijectors.py": "74a4eec7e7f259d1408aea270de33b55405d7c95b4f2528c81485e35df75a74d",
+    "src/sit_lmpc/models/value/mlp.py": "e9f83c5d40dcab9a91529560e1385990cbba9bdc03b0a5f6bb46cda4beb0bbbb",
+    "src/sit_lmpc/models/value/__init__.py": "9d3603868bab3caf1b159ba531a7bb3948b666622a2e8149a6e92195137bcd31",
+    "src/sit_lmpc/data/experiment_checkpoint.py": "3cfba8d59273fcd0ef601c6c105c9d310e11ea7ff0da2abcd0d5ec6d6f4f715a",
+    "src/sit_lmpc/data/checkpoints.py": "eee4257488513431f4c7c8928d9e031f68b505e98214c09b9b7ff46d5028ab46",
+    "src/sit_lmpc/data/dynamics.py": "e6b21eff30dd5b58d51b9ed5f5b1e0fc6ca76d535324958ff17d4aafe3e8ed82",
+    "src/sit_lmpc/data/laps.py": "e19a6deea170aea2a7be29544333d01fe1848bf42d24dace5a29d58d39520892",
+    "src/sit_lmpc/data/initialization.py": "05516f0fb65d5bd71c9931c45cf64edc3ac08a74ca585f9f5baffb2a80bb7fa5",
+    "src/sit_lmpc/data/partitions.py": "529c32216efb63ec4f637ee3757e1382b86bed7ea98f99d5cc3f9fb91999d24c",
+    "src/sit_lmpc/data/normalization.py": "ebcb10ebb154d4b628e949a258ea66ab1352ee87f158cf5c8db0ff593bbd23cd",
+    "src/sit_lmpc/data/trajectories.py": "eb1a6799b35efa0229bcfaa67b1122e4c1e3c7ccf2017f1fd63cd5300571c0b3",
+    "src/sit_lmpc/data/__init__.py": "08c1ee9d8f72ca13100240a21429fdfe568241ae1f7949ca54d41dc75032a2ca",
+    "vendor/utilitySuite/pyproject.toml": "7845530eceef3d3da32bd210e35c7046540c25c11ce0fd92c3b4fbcf364ebd11",
+    "vendor/utilitySuite/README.md": "642f10166f22a16e2249740d1abda915bbecba63c32d7799da63d2581deba5da",
+    "vendor/utilitySuite/LICENSE": "0b719bcb52506853ee2002e82643018b5a62a6c7ce40849dcb9f10c9e0994130",
+    "vendor/utilitySuite/utilsuite/plotlyutils.py": "7249d81fc318252a543bfc3334d4fb34f9711cc68c8ab3b10c5689c278093af8",
+    "vendor/utilitySuite/utilsuite/utilitysuite.py": "92b4a2277f5a08a04147cd4863a49b43855d6f7d4bc57f79a96d33403baf316f",
+    "vendor/utilitySuite/utilsuite/generate_init.py": "daabf475427dc979e2a63d03b0e05175c72d74594e7f48437e7f082f24c406ff",
+    "vendor/utilitySuite/utilsuite/timer.py": "fbeeb86c6b2906d0862884c0a35703f05a61de757cd05495e6b8924af4210836",
+    "vendor/utilitySuite/utilsuite/configyaml.py": "10b622a2c0a63b47201f4e719aa7495f4afb604a74066d74e49f418c04951065",
+    "vendor/utilitySuite/utilsuite/qtmatplotlib.py": "d0a4f050cf948b0becabc0488bfa454f471fe31d9420d3fb1c053ab75cd98ab0",
+    "vendor/utilitySuite/utilsuite/keymonitor.py": "bf474ffe6e6b15040ead9f9c3d033e6a9565d4be49ac17e4eb6193e0d45a13c1",
+    "vendor/utilitySuite/utilsuite/misc.py": "7fc9d92fbfff378e333e3aea509f6c2fc41c91f4cdd0ade66ec236d3db14cd67",
+    "vendor/utilitySuite/utilsuite/pltutils.py": "c6175fe715d71f442d64846d0192332374cc34e16a162e76b1509429adf0552a",
+    "vendor/utilitySuite/utilsuite/dataprocessor.py": "5f10c840873e468b529b4229c5740b77c6641f5df5fb49958b50b731ec5029a8",
+    "vendor/utilitySuite/utilsuite/rotation_utils.py": "873c186c4d32f6c9d4545832815237b9be464c1365bc68f9306eb23d5935fdae",
+    "vendor/utilitySuite/utilsuite/jax_utils.py": "f8e36b00db62dcff9ec1e93525599646a8b2bac6f90fb9b6d5cc49c93a93a253",
+    "vendor/utilitySuite/utilsuite/listdict.py": "05c48d7e738455bb29f6415f052a23118fa0de593ef448c7d9a32eb40af8d56a",
+    "vendor/utilitySuite/utilsuite/__init__.py": "8676fc96d02078a47730f23502f302a3ea18ea79075029fa3cf3ab8ea7442570",
+    "vendor/utilitySuite/utilsuite/torch_utils.py": "5aecaea555457dc922076ccc402d72f51265a10dc86c3b8031480ed35433e9d3",
+    "vendor/utilitySuite/utilsuite/open3dutils.py": "4fa3afc5af764b97a18b39bcd2194538cd9b4e6752cf5533d97b940d0d6a7405",
+    "vendor/utilitySuite/utilsuite/logger.py": "4a3a7f3d7a70374798f68902d7cf5b163cb04b7b4854afadef20ed0222803865",
+    "vendor/utilitySuite/utilsuite/coloredtext.py": "ce1205031fef42ecb4bb400179a341d7e62152cdb07b4677e115f1c97bfeaa21",
+    "vendor/utilitySuite/utilsuite/colorpalette.py": "46993eeedd14c12e781e1c959d58e59ba52d6f645998d74402c8174a83d37619",
+    "vendor/dyna-dist/NOTICE": "6d2dad3c14d1491d5bbc65841e439cae8f36b214e5b8ac116b8d5f32c4029367",
+    "vendor/dyna-dist/pyproject.toml": "6a90080ba48323f416b3b8e3ba3ea0e319fa96f4107a32cf47c642dbe6bcbfb4",
+    "vendor/dyna-dist/README.md": "c3bbee06d219987aff489a4ed17f0b3a6fda987ac6cd0acfdf3645a1bb0af3e1",
+    "vendor/dyna-dist/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "vendor/dyna-dist/src/dyna_dist/cli.py": "66be189d190b36ee75e85da4a8054960c7cb4471c6181c2c179f22d54edea6ca",
+    "vendor/dyna-dist/src/dyna_dist/__init__.py": "b71c2b5cd269e09f500c6ce96a7f98aa75947e380ad7889206697e49ad1879a7",
+    "vendor/dyna-dist/src/dyna_dist/config.py": "e0e6025e29e62f36710e99f2002dae703e560b7bac83d75144fe0552229fe4bf",
+    "vendor/dyna-dist/src/dyna_dist/training/trainer.py": "ccaed26d45decab85115e2fdbae0b6a3d9b2e30229241c12c5d3bcdc51b7886b",
+    "vendor/dyna-dist/src/dyna_dist/training/hierarchical.py": "061901dbf1e727428fd0577acef649d4a05db26637dc0643f35e1658f627b561",
+    "vendor/dyna-dist/src/dyna_dist/training/population.py": "a44fc1ec3b297a7494f924f24cd719bd0884dfc839070346beb46ccb2f5ece2d",
+    "vendor/dyna-dist/src/dyna_dist/training/__init__.py": "7a1fd87436cd5ae231242bdfb9efbad634c18500239a849abc7ca9773781d708",
+    "vendor/dyna-dist/src/dyna_dist/training/rollout_validation.py": "6cf1c775cf9ce1c19ddf8dafa86e7a87fc91020cf689c152e017d91a98eb5dd0",
+    "vendor/dyna-dist/src/dyna_dist/training/objectives.py": "2432d6071916031ec1bb4b2647f08c43dcf517f191a9522a9b7c8b5cce241bb0",
+    "vendor/dyna-dist/src/dyna_dist/adapters/bro.py": "6c2f4a454b019defa0f37b66817a50a1e8f9d38951c46ee1d04bee8c6b04bf85",
+    "vendor/dyna-dist/src/dyna_dist/adapters/gym_st.py": "3f6e6ccaf6bf7eaa25ae332c01dc87cdc74a387f1cd0b59d3ee1e7a3d480ec19",
+    "vendor/dyna-dist/src/dyna_dist/adapters/__init__.py": "b9107eec9402e99c367bdc96abcfe5acb7a513a2919ec9905039a00d8b0ed2c1",
+    "vendor/dyna-dist/src/dyna_dist/adapters/mujoco.py": "9eb792b94c8c4fe7f4755c04cad60795ef391046b289624f5b59a701889c00bc",
+    "vendor/dyna-dist/src/dyna_dist/domains/base.py": "3ff6ecf644e3c88a82c73b63891e87e4712ed62508e1241f928877e4f1a84797",
+    "vendor/dyna-dist/src/dyna_dist/domains/__init__.py": "dbe7be50f76540aeb7bdd32be64a27a90c88cdcf7e7385754d9df1deb0379e26",
+    "vendor/dyna-dist/src/dyna_dist/policies/sac.py": "5b19b2ca041a8a10e81f3763a8b3563df482488d08690ffa9d24962b7806c2c6",
+    "vendor/dyna-dist/src/dyna_dist/policies/__init__.py": "08d15563b4224b61472206f0cad6d4e542eab77cedb772b9173db2cbd621d472",
+    "vendor/dyna-dist/src/dyna_dist/io/dataset.py": "2ae7e843a860654acc72a9d1dbe60fdce58e0742c3e22643d70609aa7c040ad0",
+    "vendor/dyna-dist/src/dyna_dist/io/common.py": "2319f17d2c8abd15c73006e47d18f90a80fa344c49bdb865add4b15c5dd82056",
+    "vendor/dyna-dist/src/dyna_dist/io/checkpoint.py": "26d4285713ade37184437f57687b54d27dfe0508f4b5fd2e3ba861bd1578f63f",
+    "vendor/dyna-dist/src/dyna_dist/io/__init__.py": "b3ae9e54337df03cefd74fcc336af22fc71aabf0c99f38d6abafa0db2e002ffc",
+    "vendor/dyna-dist/src/dyna_dist/inference/online.py": "e410d7f56e7af12143fa2a6736d6aba54becd0fb4ba3e3859d9d928736616162",
+    "vendor/dyna-dist/src/dyna_dist/inference/posterior.py": "1edfdf20bfe9c30f6c55a86869ad589cfe90c4f4c1cc95855aa7a79d2a0ef7a1",
+    "vendor/dyna-dist/src/dyna_dist/inference/hypothetical.py": "af13d6cb6f105a7c7323946436bf9fb862df58d6a47e007a30a2444e8df06077",
+    "vendor/dyna-dist/src/dyna_dist/inference/__init__.py": "de1dd52ab71469847bd9f1665ab1e9937ee5047bac2fe689b1a4024ed8016377",
+    "vendor/dyna-dist/src/dyna_dist/evaluation/trajectory_sections.py": "c5fb904e02a07c93151538c3ae451e672bffc8c19c8c56cfeacf1aa8dd9eb364",
+    "vendor/dyna-dist/src/dyna_dist/evaluation/evaluate.py": "c94ffcdfcbe338f8b118fc60fc13a6ba245c6b8f33a90cde6fa489594f1c6a36",
+    "vendor/dyna-dist/src/dyna_dist/evaluation/plots.py": "7d24287067ed31c4c1d064792fcfa2e2959b364703f4cde40f18e9c196ff87eb",
+    "vendor/dyna-dist/src/dyna_dist/evaluation/baseline_recheck.py": "a47672e1d21e1bf4f526e941e28d9634fa1f2d43e995896d2523d58b8ec9c70c",
+    "vendor/dyna-dist/src/dyna_dist/evaluation/dataset_sizes.py": "08f9d9a6740409982a3f15521e1767a7281eb8d7ae689378a0ef66e2c5503f73",
+    "vendor/dyna-dist/src/dyna_dist/evaluation/latent_sweep.py": "8b3acd4a58b6e8a20de5c1134b72a9b4f99e37a4d7d6ae6fb6c7d618ecc7c5d5",
+    "vendor/dyna-dist/src/dyna_dist/evaluation/vehicle_bnn.py": "2f0af0fb06806881c9db23e3c2eef38a150cd8fef9243e48bce96508e2f13758",
+    "vendor/dyna-dist/src/dyna_dist/evaluation/vehicle_bnn_summary.py": "525fb5908ef1d4a368e34a6657275988a8aad5c750ccc7016e5cf585597ec5ed",
+    "vendor/dyna-dist/src/dyna_dist/evaluation/vehicle_bnn_plots.py": "d2bd9152968461f3f8da30d638e4a64873352f5a489936658525b823d25390a8",
+    "vendor/dyna-dist/src/dyna_dist/evaluation/__init__.py": "6be5a8896ea0004feda892f6e7c177a12fe90893b61312f80836f9740b057f85",
+    "vendor/dyna-dist/src/dyna_dist/evaluation/training_options.py": "f7e3df920656f0c611973e1619e1b4f6a74bb4086885605a3d9e1967b40dee80",
+    "vendor/dyna-dist/src/dyna_dist/evaluation/vehicle_mppi.py": "8099485410328b40ea1473336e703ba4b69041ff7722d8515b1bda748e0fefb0",
+    "vendor/dyna-dist/src/dyna_dist/evaluation/vehicle_mppi_plots.py": "69fefa13c475ccc6e067c38fdd221e777c111f2496a8ca3764b851a0a984fa0c",
+    "vendor/dyna-dist/src/dyna_dist/models/gaussian.py": "5277e02f37f1f3294d03a8c54cdda328a275e2f11e5dbf8d74f768a41acf746a",
+    "vendor/dyna-dist/src/dyna_dist/models/prior.py": "f42672802de9759527c1310e2b50438dc082344911f7e1bc91ff8a8e577724c3",
+    "vendor/dyna-dist/src/dyna_dist/models/features.py": "e036fc2fb7b68875b55fbb7e73d5b4d4626aaef5d9e9856873619775c853ac1a",
+    "vendor/dyna-dist/src/dyna_dist/models/__init__.py": "b18caa5e15f0dac9ef8b02433d05f9f099bb968f219b542b47cbd95e18388e6e",
+    "vendor/dyna-dist/src/dyna_dist/models/profiles.py": "197e9a61db6be7fae4892c28d1b44a9f80a83e93062b67a1994f28d7b77d9586",
+    "vendor/dyna-dist/src/dyna_dist/models/st.py": "3adf5078681381a21ee130bcc8cbe19c1ac60a60eeadd4e8ed78b0d8d6c1613a",
+    "vendor/dyna-dist/src/dyna_dist/data/vehicle_population.py": "c9a85c157d853b15368cd3ce2b2c06d43a47d37240ae2d4c616c042cd37655ef",
+    "vendor/dyna-dist/src/dyna_dist/data/collector.py": "74976803b923178d2a624b9cf2108b15eccbb862d475fe5669e587cdbb6d2f95",
+    "vendor/dyna-dist/src/dyna_dist/data/trajectory_recorder.py": "f076af252304767bb8283346e2afd4e041af4e28fd4d879160c25e08cb6b635b",
+    "vendor/dyna-dist/src/dyna_dist/data/original_vehicle.py": "733e4ff2fa7eac6143bc9499d604cb34f5107b01ef60e9571b18668d35cb9fdb",
+    "vendor/dyna-dist/src/dyna_dist/data/vehicle_study.py": "f2cb7fb7aaddf5c02b1931110241b4ec868ae5cef7c3029d6a2d6c23c1b144de",
+    "vendor/dyna-dist/src/dyna_dist/data/schema.py": "4fb25c767c40c0bb19bed36d28a647daabcb1784c5b656cb62c3ac7235ba5a69",
+    "vendor/dyna-dist/src/dyna_dist/data/__init__.py": "466e9cb8df0b49c15317308ae982b8645755f082e232197f86298b778dc7906c",
+    "vendor/dyna-dist/src/dyna_dist/data/vehicle_collection.py": "bab8cc416bed520317d6d075f0e36d3c39927b10f065526c8d0068bd8e6635e3",
+    "vendor/dyna-dist/src/dyna_dist/data/transforms.py": "da4a3cd14d33c226488e73c72259ca4a5176f7717ff2ee36171d0f01696e998c",
+    "vendor/dyna-dist/src/dyna_dist/environments/dm_walker.py": "a5bc2b830ec62edfa1cfb31c6ec8d5a9993b92cabb827381495f125cdf4760ce",
+    "vendor/dyna-dist/src/dyna_dist/environments/__init__.py": "84e5d1bf443a3552679aae3a78290f71766f136dec0d8c8fb5ad68d4798a59f9",
+    "vendor/f1tenth_gym/pyproject.toml": "4c4a6c4eb308bdd0c35f737f0269caba51909e20097540c0dfbb4b2b09c1da8c",
+    "vendor/f1tenth_gym/README.md": "7a1c8905ee98c921499b09f024be3b30e1160a5183ee67c4277e3f10a8b5cc58",
+    "vendor/f1tenth_gym/LICENSE": "f97d9b8a0d287aaa156d52677f8d4aad3bb5050ffbfc03ad99242350a3fc256e",
+    "vendor/f1tenth_gym/f1tenth_gym/__init__.py": "01e6d74941fdf10c49d49270b86e3bf58360c694688529ba3ca2414af32f11f7",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/collision_models.py": "62ed262d010f9cd43b26a3d0596fb62e325372491db6a19cc9904a4cef1e5233",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/f110_env.py": "0a4b7ad54110db6a4f8153eae08df169fcf86c5052a56cfa4325611a5c28c76a",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/observation.py": "c6102a111e1d187c8e1b19c1d317611d6b265198b5012758e87d469f0b2a0a9a",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/utils.py": "785625ea5a06890274ede630c29c1ef54e870c9e3cbc44c220a39100bcb584e0",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/integrator.py": "f5375e4a069f494346d68914dea6f8be3ddc23262005a1c7e639d45dd8fb3ae1",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/__init__.py": "14c31c095d09229593898173eda55cb9317d874fdb9627118e75ac0778b994ae",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/base_classes.py": "cf0c304b3eb65d9466383098632f0c62b0d0229dcf7463eb882f76bf68025fe7",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/laser_models.py": "aa5caf20572daf8d8d0eedc238aa819b5d049bc208c3adb4a4035ab6560c5599",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/action.py": "cd792a0d572ad3a042ed67da4ad29977048201c13557948ab5a69d074804f1d4",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/track/track.py": "3ae949536c745f5de07fa3474c20f3e68c05321f6f921a3063c3b3f1371882a2",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/track/cubic_spline.py": "9ba843be9cf80a9f764f86e8855e6b30687bf40cc84a166cabc25a8a3c69b9f4",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/track/utils.py": "300ea0e776d138daba7095fa64a3b13db8027df547cd633ccf4ed4035ad8cc85",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/track/raceline.py": "34f81cae3c69b3c71da8949d08690ffa9162256338e3f9b70f741a07e8e160be",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/track/__init__.py": "87ebf3cfc5033a5483c6b6b960a4ee095dd82f0a0f0a56f959ab781d9f98ff85",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/reset/reset_fn.py": "e2bd036dd145ae3e1afb0057b2d69f6a1a013303547d360ee8e5b7b8358d0e83",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/reset/map_reset.py": "91f334c5602fcecf71de6ff4e8cc24a3095475b51f43cab36967dbac88d5b48d",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/reset/utils.py": "28f769b7da598ed696e0dc0b62fcd6f3d4bd291501490d0e0215488c7b5907c4",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/reset/masked_reset.py": "3eead9b0bde26666ebea6233ec6036566c17702968f1e5e06b1db4b637fdbed9",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/reset/__init__.py": "5c6ca8249325220d21ad0cadaec502a4bffa256da900bb909b39b735b141932f",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/utils.py": "62e14653995c39c4a6ef198126f5b6c54ed482fd3b570c6df322bb29148d237e",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/single_track.py": "6f8ac46520398501bcfb1a1b8284aa7b2edb99551bf59f4dd0b4f16156b9cb52",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/kinematic.py": "2bcc648ad2bc5acc596260fb2d7659de2a67193b3b2104fff26124f6cb72416b",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/__init__.py": "1c2ab9efb563e624da70533d23c6f028ef9a04c20f0585f77da01765fde9965c",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/multi_body/tire_model.py": "2a78e384fa0f6ed76b1883487f217f13716d98b8321909cdb08553d3aaf56f02",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/multi_body/tire_model_old.py": "5c845c830b00e6a4668bf885fd86fbdf7606623527e8cb29091e7dbc5f9dcf15",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/multi_body/__init__.py": "b309eac5d26f175bf9807ed6f59db9d9036e73316e27f0bb2eca6f8cc17507fb",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/dynamic_models/multi_body/multi_body.py": "965e580681d72aaaa47623393650285672caf101b6dbe13fa24c92384f0df994",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/pyqt_objects.py": "c2c928843e0ca10ffb223dba5212ccad44f3189b80b0f5e86a85131b8b4cd49f",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/rendering_pyqtgl.py": "442a769e35cb947954f114f88c54ae54bc030b772c2329a7345759f22ec596ef",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/example_mesh_cyber.obj": "49e69fa694a72ec902a7c7943f3a56aa44e665e085bae062941bb213b0bfd35a",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/rendering_pyqt.py": "ba15cefc63c8e486b6f0d3a7d9b2e7d243ab3adb3969b3135a082c07df37d5d5",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/renderer.py": "9c376377214c43ce9170bb00377e83d3ab6b8b8a9fa1779e2b5755d5ed873f17",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/pyqtgl_objects.py": "9a28aebfab417eb26ae1f2d2d46482d9fc64c1819a667398252db10077645466",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/mesh_renderer.py": "19c1984a3241f6d20132049523c5869a3346c89feb7e55b389642d1402d3ee39",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/__init__.py": "616be9d926da3b899d4e88295c7a1adcb4a290074c29488de48608b9edd2a67c",
+    "vendor/f1tenth_gym/f1tenth_gym/envs/rendering/rendering.yaml": "a49aee79f9160b21d2d05b1847c4b151e4816e98d66431d3c821816dfbdf3e44"
+  },
+  "changes_after_extraction": [
+    "Package/CLI rename to sit_lmpc and sit-*",
+    "Known-dynamics default with dormant auxiliary modules",
+    "Relative YAML preset inheritance and CLI/resume composition",
+    "BNN artifact importer and offline learner entry point",
+    "Vendored dependency paths and portable packaging",
+    "Migrated tests use explicit features and current API; stale GUI/colorbar and event-order assumptions corrected"
+  ],
+  "completed_at": "2026-11-07T13:32:31.351805-05:00"
+}

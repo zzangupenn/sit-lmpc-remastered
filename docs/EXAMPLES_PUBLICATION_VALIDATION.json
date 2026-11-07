@@ -1,0 +1,20 @@
+{
+  "staged_checkout_offline_install": true,
+  "dependencies_inside_checkout": true,
+  "portable_configs": true,
+  "known_cli": true,
+  "bnn_cli": true,
+  "unit_tests_passed": 484,
+  "integration_tests_passed": 158,
+  "total_tests_passed": 642,
+  "full_experiment": {
+    "known_successful_laps": 300,
+    "bnn_successful_laps": 300,
+    "failed_attempts_each": 0
+  },
+  "test_processes": "Unit and integration suites isolated; monolithic native compiler crash documented",
+  "examples_prefix_resume_smoke": true,
+  "plot_regeneration": true,
+  "package_build": true,
+  "generated_artifacts_excluded_from_git": true
+}

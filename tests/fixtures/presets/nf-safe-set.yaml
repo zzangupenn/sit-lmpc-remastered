@@ -1,0 +1,65 @@
+# Isolated conditional-NF safe-set trial; ordinary default.yaml still uses facets.
+simulation:
+  model: dynamic_ST  # [dynamic_ST] Only supported simulator model. Actual analytical Gym dynamics.
+  map: custom1  # [custom1, Spielberg, or an existing local map prefix without _map] yaml. Track used in the hull comparison.
+  friction: 0.5 # Known true dynamics isolate the safe-set change.
+  initial_speed: 10.0 # Tracking warm-up speed, m/s.
+  timestep: 0.1 # Transition interval, seconds.
+  integrator_timestep: 0.02 # Keep the existing simulation integration.
+  max_laps: 300  # Positive integer total trial budget (successes + failures); learned control starts after safe_set_size + 1 successful warm-up laps.
+  max_steps: 1000000  # Positive integer total control-step limit.
+  seed_mode: fixed  # [auto, fixed] auto generates a fresh master seed; fixed reuses simulation.seed.
+  seed: 17  # [null, integer] null in auto mode; integers must be in [0, 2^32). fixed mode requires an integer.
+  dtype: float32  # [float32, float64] Floating-point precision for simulation, models and control kernels.
+  control_noise: [0.0, 0.0] # Isolate the safe-set estimator.
+  state_noise: 0.0 # Isolate the safe-set estimator.
+planner:
+  lambda_count: 24
+  lambda_max: 40.0
+  dynamics:
+    backend: st  # [st, gaussian_bnn] st uses analytical ST dynamics; gaussian_bnn uses a pretrained learned predictor (requires a checkpoint and sit_lmpc_mode=false).
+    calibration_split: random_windows  # [random_windows, contiguous] Dynamics windows only; does not affect NF density.
+    calibration_fraction: 0.1  # Dynamics hold-out fraction in [0, 0.5); NF uses all retained states for both training and calibration.
+    validation_fraction: 0.0  # Dynamics test fraction in [0, 0.5); 0 disables dynamics testing. Does not affect NF density.
+    calibration_horizon: 10 # Sliding rollout-window length; not a gap in random_windows mode.
+  friction: 0.5 # Match the true predictor for this isolated test.
+  sit_lmpc_mode: true  # [true, false] true uses fixed predictor friction, disables belief learning, and stops on the first physical failure; false allows learning and retry.
+  belief:
+    enabled: false  # [true, false] true enables this dynamics-belief learner; false disables it. SIT mode also disables it; Gaussian-BNN updates use dynamics.belief_update separately.
+  samples: 1024 # Sampled action trajectories per update.
+  horizon: 10 # Ten future transitions.
+  safe_set_size: 4 # Minimum rolling successful trajectory history.
+  safe_set_min_states: 192  # Nonnegative integer; 0 disables the state-count minimum. Shared by controller safe-set retention and NF training history: keep at least safe_set_size successful laps, adding older laps to reach this many unique states. NF uses all retained states and repeats training passes to reach steps.
+  safe_set_query: nf_density  # [facets, implicit, nf_density] facets uses the original convex hull; implicit uses a point-hull distance bound; nf_density uses calibrated successful-state NLL. Always uses the selected method; no automatic method fallback.
+  safe_set_density:
+    method: quantile  # [quantile, sigma] Quantile keeps the current full-range penalty and all-state training/calibration. Use nf-safe-set-sigma.yaml for the winning historical sigma setup.
+    learning_rate: 5.0e-4  # Finite value > 0; Adam learning rate for each freshly initialized NF.
+    batch_size: 128  # Positive fixed batch size; padding in the last batch has zero fitting weight.
+    steps: 10  # [positive integer, null] Integer: exact Adam updates per fit; repeat shuffled passes if needed and stop mid-pass at the budget. null: legacy epochs policy.
+    calibration: global  # [global, local] global uses all retained NF safe-set states; local uses all unique states in the selected safe-set progress window. Both also train on all retained states.
+    relaxation_quantile: 0.3  # Fraction in (0, 1]; raw-NLL quantile for optimal-trajectory acceptance. 1.0 selects the maximum, independently of the penalty upper bound.
+    penalty_upperbound_quantile: 0.99  # Fraction in (0, 1]; raw-NLL quantile for the penalty upper reference. 1.0 selects the maximum. The lower reference is always the minimum safe-set NLL.
+    penalty_transform: log1p  # [linear, log1p] linear uses a capped NLL ramp; log1p compresses max(NLL-minimum, 0) using the calibration width, without upper clipping.
+    penalty_normalization: calibrated  # [calibrated, sample_max] calibrated maps the configured upper reference to penalty 1; sample_max maps the valid sampled maximum to 1 (capped at the upper reference only for linear). Frozen per update; log1p rerolls can exceed 1.
+  risk_constraint:
+    enabled: false  # [true, false] true enables learned-risk driving constraints when ready; false omits them. Separate from risk.enabled.
+  probabilistic_safety:
+    enabled: false  # [true, false] true enables dynamics-distribution violation probability checks; false omits them. Tracking warm-up stays unconstrained.
+value:
+  epochs: 300 # Preserve the usual value-function learner independently of the new density.
+risk:
+  enabled: false  # [true, false] true trains the separate outcome-probability model; false disables risk training. planner.risk_constraint controls its use for driving.
+diagnostics:
+  print_lambdas: false  # [true, false] true prints selected lambdas each LMPPI iteration; false suppresses those prints.
+  trace_steps: 0  # Nonnegative integer shared limit for trace.json, live Gym history and insight archives; 0 disables both trace and insight capture.
+  keep_open_on_failure: true  # [true, false] true holds the rendered failure for history inspection; false follows stop/reset handling immediately. Right past the newest frame follows the existing failure policy.
+  render: true  # [true, false] true shows the Gym window and historical render states; false disables the Gym window. --headless also selects false.
+  plots: false  # [true, false] true enables live state/prediction plots; false disables them. Keyboard debug views and saved summaries are controlled separately.
+  keyboard_controls: true  # [true, false] true enables Left/Right history, 1-6 debug views, 0 to close plots and Q to quit; false disables commands. Requires a display; Ctrl+Alt+K suspends/resumes listening.
+  summary_plots: true  # [true, false] true automatically saves summary figures; false disables automatic exports. Keyboard option 2 can still display/export summaries.
+output:
+  exp_name: nf-safe-set # Fresh timestamped result directory.
+  quick_load: true  # [true, false] true imports warm-up safe-set laps from init_path and fits fresh value/density models; false collects warm-up data. Resume restores its checkpoint instead.
+  quick_load_init: true  # [true, false] with quick_load, true restores saved vehicle state and action horizon; false uses the normal starting pose/speed and zero action horizon.
+  init_path: /home/lucerna/Research/SIT-LMPC Remastered/results/custom1/nf-safe-set-20261024-152823/init.npz  # [null, <snapshot path>] null when quick_load=false; quick_load=true requires a path.
+  resume: null  # [null, <checkpoint path>] null starts an independent experiment; a checkpoint path resumes into a new result directory.

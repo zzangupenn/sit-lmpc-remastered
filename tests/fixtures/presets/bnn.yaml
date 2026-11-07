@@ -1,0 +1,61 @@
+# Frozen learned population; this explicit preset does not modify packaged default.yaml.
+simulation:
+  model: dynamic_ST  # The actual Gym remains analytical ST. [resume]
+  map: custom1  # Recorded trajectory coordinate system. [resume]
+  timestep: 0.1  # Must match the learned transition interval.
+  integrator_timestep: 0.02  # Preserve BRO's simulator; training used 0.01, checked in the integration report.
+  friction: 0.5  # True simulator friction, never passed to the BNN.
+  initial_speed: 10.0  # Tracking target in m/s; training probes covered nominal 5–20 m/s.
+  max_laps: 20  # Successful and failed attempts both count.
+  max_steps: 100000  # Finite control-step cap.
+  seed_mode: auto  # Save a fresh master seed for each experiment.
+  dtype: float32  # Runtime precision; the checkpoint's normalizer is not refitted.
+  action_scale: [0.4, 3.5]  # Normalized steering-speed and acceleration scales, applied exactly once.
+  control_noise: [0.001, 0.001]  # Real actuation noise, not function-sampling noise.
+  state_noise: 0.001  # Existing truncated controller-input noise.
+planner:
+  dynamics:
+    backend: gaussian_bnn  # st preserves existing fixed-ST/model-bank behavior; gaussian_bnn uses dyna-dist.
+    checkpoint: ../dyna-dist/runs/vehicle_st/training-options-high-latent-20261017-1447/option-1/latent-96/best_refit  # Trained network, Gaussian prior, and normalization; copied into each run/checkpoint.
+    belief_update: frozen  # Preserve the old population sampler, including when this preset overrides a posterior checkpoint on resume.
+    particles: 64  # Fixed function samples per control update; change the checkpoint to use another latent dimension.
+    verification_particles: 2048  # Independent samples for final chance checks only; more expensive than prediction.
+    verification_confidence: 0.95  # Simultaneous Monte Carlo confidence under the learned distribution, not real-world safety.
+  sit_lmpc_mode: false  # The separate fixed-ST baseline remains available using backend: st.
+  friction: 0.4  # Existing ST-baseline/quick-load metadata; never supplied as a BNN input.
+  belief:
+    enabled: false  # No finite-bank fitting, online latent identification, or population retraining.
+  horizon: 10  # Predict H transitions with one latent fixed throughout each trajectory.
+  samples: 1024  # MPPI control-sequence samples.
+  boundary_buffer: 0.03  # Preserve the current preset's inward geometric margin.
+  safe_set_size: 6  # Completed-lap pairs retained for value learning and the hull.
+  hull_precompile: true  # Keep bounded hull executable reuse.
+  risk_constraint:
+    enabled: false  # Enable independently; evaluation can be predictor or distribution.
+    evaluation: distribution  # When enabled, average learned risk over sampled dynamics paths.
+  probabilistic_safety:
+    enabled: false  # Opt in after inspecting calibration; final checks use independent validation particles.
+    boundary_threshold: 0.05  # Allowed modeled any-step boundary-event probability.
+    terminal_hull_threshold: 0.05  # Allowed modeled terminal hull-event probability.
+    fallback: baseline  # Continue with SIT-LMPC's least boundary/hull violation and print selected probabilities; stop opts into strict verification.
+value:
+  input_mode: state  # state or state_action; existing value training is unchanged. [resume]
+risk:
+  enabled: true  # Collect/train risk as before, independently of using its constraint.
+  input_mode: state_action  # Match the current risk-learning preset; independent of value input mode. [resume]
+  cutoff_mode: manual  # Match the existing fixed cutoff policy.
+  manual_cutoff: 0.5  # Used once the risk model is trained, even with a frozen dynamics population.
+  target_safe_fraction: 0.5  # Relevant only if cutoff_mode is changed to learned.
+  hidden_dims: 256  # Existing risk-network width. [resume]
+  epochs: 300  # Existing risk-training budget, separate from frozen BNN inference.
+diagnostics:
+  render: true  # --headless disables only Gym rendering.
+  plots: false  # No live plots by default.
+  keyboard_controls: false  # Enable to use existing keyboard debug windows, including BNN comparison on key 5.
+  summary_plots: true  # Write experiment summary plots.
+output:
+  root: results  # Result folders remain grouped by map.
+  exp_name: bnn96-f05  # Prefix before the new experiment's Eastern timestamp.
+  checkpoint_every_trials: 10  # Portable checkpoint every ten successful/failed attempts.
+  quick_load: false  # Existing warm-up-lap initialization stays separate from resume.
+  resume: null  # Direct path to a self-contained checkpoint; original training folder is not needed.

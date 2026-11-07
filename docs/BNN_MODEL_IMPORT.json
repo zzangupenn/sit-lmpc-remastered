@@ -1,0 +1,12 @@
+{
+  "source": "/home/lucerna/Research/dyna-dist/runs/vehicle_st/bnn-v2-latent96-20261022-164831/best_refit",
+  "fingerprint": "b3a4253989e698425b6eb8db8097878cdb06106aa57319ab8ef7eed5fbcaba7b",
+  "latent_dimension": 96,
+  "timestep": 0.1,
+  "integrator_timestep": 0.01,
+  "copied_at": "2026-11-07T13:22:05.498771-05:00",
+  "sha256": {
+    "manifest.json": "2d3250098c68c319c542528734113413cd34964e59822aca0e27ea65ad5979c6",
+    "model.msgpack": "b3a4253989e698425b6eb8db8097878cdb06106aa57319ab8ef7eed5fbcaba7b"
+  }
+}

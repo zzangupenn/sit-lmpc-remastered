@@ -1,0 +1,67 @@
+# Matched four-ST regression baseline; legacy likelihood weights supply chance probabilities.
+simulation:
+  model: dynamic_ST  # True Gym dynamics.
+  map: custom1  # Existing track. [resume]
+  timestep: 0.1  # Control interval, seconds.
+  integrator_timestep: 0.02  # ST/Gym integration substep, seconds.
+  friction: 0.5  # Off-bank truth; never supplied to weight fitting.
+  initial_speed: 10.0  # Tracking warm-up target speed.
+  max_laps: 20  # Count successful and physically failed attempts.
+  max_steps: 100000  # Total applied-control cap.
+  seed_mode: auto  # Resolve and save a fresh master seed.
+  dtype: float32  # Keep the existing precompiled float32 planner.
+  action_scale: [0.4, 3.5]  # Steering speed and acceleration scales.
+  control_noise: [0.001, 0.001]  # Actual actuator noise; learn using applied controls.
+  state_noise: 0.001  # Controller-input perturbation, not dynamics uncertainty.
+planner:
+  dynamics:
+    backend: st  # Enumerate analytical models; BNN particle counts are unused.
+  sit_lmpc_mode: false  # Learn and retry after physical failures.
+  friction: 0.4  # Fixed-model ablation only; ensemble uses all four branches.
+  model_bank:
+    frictions: [0.3, 0.4, 0.7, 1.0]  # Four fixed-friction scenarios, no extra dynamics draws.
+  belief:
+    enabled: true  # Synchronous fit after each attempt, including warm-up.
+    backend: fit_ensemble  # Alias of ensemble_fit; fit only the combined mean prediction.
+    predictor: ensemble  # Combine independently evolved full model trajectories.
+    prior: null  # Uniform initialization; zero prior entries would exclude models.
+    history_samples: 4096  # Bounded older data; latest success/failure retained.
+    recent_fraction: 0.8  # Evidence share assigned to recent attempts.
+    residual_scales: [0.05, 0.05, 0.01, 0.1, 0.01, 0.1, 0.01]  # Physical state scales, not injected noise.
+    max_standardized_rmse: 5.0  # Reject gross mean-model mismatch and retain last valid weights.
+    batch_size: 512  # Fixed padded cache size; weight changes do not recompile the planner.
+    fit_horizon: null  # Fit the planner horizon using recorded controls.
+    fit_max_iterations: 100  # Maximum iterations in each regression/energy optimization.
+    fit_tolerance: 1.0e-6  # Numerical optimizer convergence tolerance.
+    mean_fit_slack: 1.0e-4  # Additive normalized mean-MSE allowance over regression reference.
+    evidence_strength: 1.0  # Only used by the separate legacy likelihood method.
+  horizon: 10  # Each friction stays fixed for all ten future transitions.
+  samples: 1024  # Sampled control sequences, each evaluated under four dynamics.
+  boundary_buffer: 0.03  # Inward boundary margin, meters.
+  safe_set_size: 4  # Five completed warm-up laps before learned control.
+  hull_precompile: true  # Preserve bounded precompiled hull evaluation.
+  risk_constraint:
+    enabled: false  # Isolate geometric chance constraints from learned risk-to-go.
+  probabilistic_safety:
+    enabled: true  # Four-scenario chance probabilities use the separate legacy likelihood fit.
+    boundary_threshold: 0.05  # Maximum probability of any horizon boundary violation.
+    terminal_hull_threshold: 0.05  # Maximum terminal hull violation probability.
+    lambda_count: 16  # Active chance penalty levels.
+    lambda_max: 20.0  # Chance penalty upper bound, exclusive.
+    max_candidates: 256  # Bounded joint candidate search.
+    fallback: baseline  # Continue with SIT-LMPC's least boundary/hull violation and print selected probabilities; stop opts into strict verification.
+value:
+  input_mode: state  # Existing value learning. [resume]
+risk:
+  enabled: false  # Disable unused risk training for this controlled baseline.
+diagnostics:
+  render: true  # --headless disables only simulator rendering.
+  plots: false  # Live plots off.
+  keyboard_controls: false  # Enable for per-step debugging independently of rendering.
+  summary_plots: true  # Save ordinary experiment summaries.
+output:
+  root: results  # Save per-map experiment folders.
+  exp_name: st4-ensemble-fit-f05  # Prefix followed by an Eastern timestamp.
+  checkpoint_every_trials: 10  # Independent checkpoint includes weights and replay.
+  quick_load: false  # Optional warm-up snapshot import.
+  resume: null  # Point directly to a self-contained checkpoint to resume.

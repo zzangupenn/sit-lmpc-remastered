@@ -1,0 +1,21 @@
+extends: default.yaml  # Inherit the full annotated configuration, then apply these overrides.
+output:
+  exp_name: bnn-posterior  # Independent BNN-learning experiment.
+planner:
+  sit_lmpc_mode: false  # Enable learned dynamics and retry after failed attempts.
+  belief:
+    enabled: false  # The BNN posterior replaces the finite ST-bank learner.
+  dynamics:
+    backend: gaussian_bnn  # Continuous Gaussian distribution over dynamics functions.
+    checkpoint: artifacts/vehicle-bnn-v2-l96  # Import a checkpoint here with sit-import-bnn; paths use the working directory.
+    belief_update: posterior  # Learn the latent Gaussian from measured transitions after each attempt; neural features stay fixed.
+    posterior_method: tempered  # Calibrate the global evidence power; standard disables calibration.
+    likelihood_power: 1.0  # Upper bound on evidence power; calibration may select a smaller value.
+    particles: 64  # One fixed latent coefficient vector per coherent horizon rollout.
+    chance_estimation: planning_samples  # Reuse 64 planning functions for empirical probabilities if chance constraints are enabled.
+    calibration_split: random_windows  # Hold out sliding rollout windows throughout each attempt.
+    calibration_horizon: 10  # Calibration window length in controller transitions.
+    calibration_target_coverage: 0.95  # Function-tube coverage target on calibration data, not physical certification.
+    validation_fraction: 0.2  # Held-out diagnostics independent of fitting/calibration.
+  probabilistic_safety:
+    enabled: false  # Isolate latent dynamics learning from chance constraints.

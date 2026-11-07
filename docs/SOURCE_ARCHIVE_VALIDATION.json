@@ -1,0 +1,7 @@
+{
+  "offline_install": true,
+  "dependency_isolation": true,
+  "default_and_bnn_presets": true,
+  "vendored_sources_in_archive": true,
+  "temporary_environment_removed": true
+}

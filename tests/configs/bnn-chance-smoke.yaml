@@ -1,0 +1,24 @@
+extends: st-smoke.yaml
+output:
+  directory: results/validation-bnn-chance-smoke
+planner:
+  sit_lmpc_mode: false
+  dynamics:
+    backend: gaussian_bnn
+    checkpoint: artifacts/vehicle-bnn-v2-l96
+    belief_update: posterior
+    posterior_method: tempered
+    particles: 8
+    chance_estimation: planning_samples
+    update_batch_size: 128
+    calibration_horizon: 10
+    calibration_min_windows: 1
+    validation_particles: 8
+    validation_max_windows: 4
+  probabilistic_safety:
+    enabled: true
+    boundary_threshold: 0.05
+    terminal_hull_threshold: 0.9
+    lambda_count: 2
+    max_candidates: 8
+    fallback: baseline

@@ -1,0 +1,32 @@
+{
+  "Known-dynamics SIT-LMPC": {
+    "status": "lap_limit",
+    "successful_laps": 3,
+    "failed_attempts": 0,
+    "applied_steps": 1150,
+    "learned_steps": 382,
+    "training_generations": 2,
+    "dynamics_belief_generation": 0,
+    "elapsed_seconds": 11.251921795774251,
+    "lap_seconds": [
+      38.400000000000276,
+      38.400000000000276,
+      38.20000000000027
+    ]
+  },
+  "BNN posterior + chance": {
+    "status": "lap_limit",
+    "successful_laps": 3,
+    "failed_attempts": 0,
+    "applied_steps": 1152,
+    "learned_steps": 386,
+    "training_generations": 2,
+    "dynamics_belief_generation": 1,
+    "elapsed_seconds": 28.415086358087137,
+    "lap_seconds": [
+      38.400000000000276,
+      38.20000000000027,
+      38.60000000000028
+    ]
+  }
+}

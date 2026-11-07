@@ -1,0 +1,194 @@
+# Annotated known-dynamics SIT-LMPC defaults; loaded by sit-racecar when --config is omitted.
+# Precedence: schema fallbacks -> YAML (including extends) -> CLI; paths use the working directory.
+# Paths are relative to the working directory unless absolute; edits apply on the next run and do not change existing outputs.
+# Resume starts a new experiment: unmarked settings may change; [resume] preserves the map/outcome definition or a saved trained network's format. Network fields may change if no trained model exists yet.
+
+output:
+  root: results  # Parent for automatic folders: root/<map>/<exp_name>-YYYYMMDD-HHMMSS; Eastern time (America/New_York, EDT/EST), no seed or random ID. Relative paths use the working directory; old results are not moved.
+  exp_name: sit-known  # Prefix for automatic experiment folder names, e.g. friction-test; use a nonempty label without path separators or reserved characters. The seed remains saved in each run's config.yaml.
+  directory: null  # New run or resume: null creates a fresh timestamped result folder; otherwise use an empty/new folder. --save-dir overrides this.
+  resume: null # Direct path to the selected self-contained checkpoint folder; null starts a new experiment. Resume applies unmarked YAML settings and retains [resume] settings from the checkpoint; --resume overrides this path.
+  checkpoint_every_trials: 10  # Save a full resumable checkpoint after every 10 completed trials (successful + physically failed); positive integer. A partial lap does not count.
+  quick_load: false  # [true, false] true imports warm-up safe-set laps from init_path and fits fresh value/density models; false collects warm-up data. Resume restores its checkpoint instead.
+  quick_load_init: true  # [true, false] with quick_load, true restores saved vehicle state and action horizon; false uses the normal starting pose/speed and zero action horizon.
+  init_path: results/custom1/init.npz  # Path relative to the working directory, or an absolute path to a BRO init.npz or deliberately selected trusted SIT/TWIT snapshot; required when quick_load is true. Existing experiments remain in the old checkout.
+  trust_legacy_init: false  # [true, false] Only enable for your own trusted SIT/TWIT object-based init.npz; pickle can execute code. Native BRO snapshots never need pickle and check physical/model compatibility.
+
+
+simulation:
+  model: dynamic_ST  # [dynamic_ST] Only supported simulator model. Actual F1TENTH simulation model; planner.dynamics independently selects the predictor. [resume]
+  map: custom1  # [custom1, Spielberg, or an existing local map prefix without _map] yaml. Custom maps must provide the map/centerline/raceline resources used by Track. [resume]
+  timestep: 0.1  # Controller/simulator step duration in seconds; positive.
+  integrator_timestep: 0.02  # ST integration substep in seconds; positive. timestep must be an integer multiple of integrator_timestep.
+  friction: 0.5  # Actual Gym friction mu; positive and independent of the predictor/bank; never given to the belief learner.
+  mass_ratio: 1.0  # Actual Gym mass divided by nominal 1225.88785 kg; positive, simulator-only, with yaw inertia unchanged as in the v2 training data.
+  initial_speed: 10.0  # Starting speed and MPPI tracking target in m/s; > 0. Resume keeps the saved vehicle velocity but uses this new tracking target.
+  max_laps: 100  # Total successful + physically failed trials, including restored trials; must exceed checkpoint progress on resume, but may be below the old limit.
+  max_steps: 100000  # Total control-step cap, including restored steps; must exceed checkpoint progress on resume, but may be below the old limit.
+  seed_mode: auto  # [auto, fixed] auto generates a fresh master seed; fixed reuses simulation.seed.
+  seed: null  # null in auto mode; fixed mode requires an integer in [0, 2^32). One source seeds Gym, host randomness, planner keys, and value training; --seed selects fixed mode.
+  dtype: float32  # [float32, float64] Floating-point precision for simulation, models and control kernels.
+  action_scale: [0.4, 3.5]  # Positive scales converting normalized actions in [-1, 1] to physical controls. Order: [steering angular speed (rad/s), acceleration (m/s^2)].
+  control_noise: [0.001, 0.001]  # Gaussian actuation-noise standard deviations, added after physical scaling. Same order/units as action_scale; nonnegative. [0.0, 0.0] disables this noise.
+  state_noise: 0.001  # Truly truncated Gaussian std for all seven LMPPI input-state components, bounded at +/-3 std as in SIT; 0.0 disables it. Does not affect MPPI inputs or represent learned uncertainty.
+
+planner:
+  dynamics:
+    backend: st  # [st, gaussian_bnn] st uses analytical ST dynamics; gaussian_bnn uses a pretrained learned predictor (requires a checkpoint and sit_lmpc_mode=false).
+    checkpoint: null  # Required for a new BNN run; unchanged or null on BNN resume restores the checkpoint's bundled model.
+    particles: 64  # Coherent learned function samples per control update; unused by the ST backend.
+    chance_estimation: independent  # [independent, planning_samples] independent reserves verification samples; planning_samples reuses planning paths for empirical fractions without a confidence bound.
+    verification_particles: 2048  # Independent function samples for final chance verification only; no extra sampling when disabled.
+    verification_confidence: 0.95  # Simultaneous Monte Carlo confidence under the learned model, not a real-system safety guarantee.
+    belief_update: frozen  # [frozen, posterior] frozen keeps BNN prior sampling; posterior updates the Gaussian function belief. ST uses planner.belief.
+    likelihood_power: 1.0  # BNN posterior only: maximum calibrated evidence power; with legacy standard, 1 is ordinary Bayes and (0,1) manually tempers it.
+    posterior_method: tempered  # [standard, tempered, noise, noise_tempered] standard uses uncalibrated Bayes; tempered calibrates evidence power; noise calibrates observation noise; noise_tempered calibrates both. Used for BNN posterior updates.
+    calibration_fraction: 0.2  # Dynamics hold-out fraction; NF safe-set density uses all retained states for both training and calibration.
+    calibration_split: random_windows  # [random_windows, contiguous] random_windows samples sliding dynamics windows; contiguous uses separated prefix/calibration/test blocks with gaps. Does not affect NF density.
+    calibration_horizon: 10  # Complete calibration rollout-window length; sliding starts in random_windows mode; also the gap size only in contiguous mode.
+    calibration_min_windows: 4  # Calibrated modes only: hold publication until this many complete calibration windows exist; finite evidence is retained.
+    calibration_target_coverage: 0.95  # Calibrated modes only: empirical 95% function-tube coverage target, not a safety certificate.
+    calibration_score_slack: 0.05  # Calibrated modes only: maximum relative energy-score degradation against the previous published belief.
+    calibration_powers: [1.0, 0.1, 0.01, 0.001, 0.0001, 0.00001, 0.000001]  # Calibrated tempered modes only: candidate powers reweight all unique fitting evidence from the original prior.
+    update_batch_size: 512  # BNN posterior only: fixed padded feature batches; unique fitting observations contribute once; calibrated modes exclude calibration, test and gap rows.
+    validation_fraction: 0.2  # Dynamics test fraction in [0,0.5); changed BNN partitions rebuild evidence. Does not affect NF density.
+    validation_particles: 64  # BNN posterior only: coherent samples for held-out rollout error, energy, coverage, and width, without injected observation noise.
+    validation_max_windows: 64  # BNN posterior only: bound held-out rollout sections scored at available horizons 1/5/10/15; no new lambda axes.
+  sit_lmpc_mode: true  # [true, false] true uses fixed predictor friction, disables belief learning, and stops on the first physical failure; false allows learning and retry.
+  friction: 0.5  # Fixed predictor or MAP warm-up coefficient; ensemble mode uses all bank models from the prior onward; independent of Gym friction.
+  mass_ratio: 1.0  # Assumed ST predictor mass / nominal mass; independent of simulation.mass_ratio, including SIT mode.
+  model_bank:
+    frictions: [0.5]  # Finite ST hypotheses for dynamics-belief learning and comparison; positive, finite, unique; each stays fixed through its rollout.
+  belief:
+    enabled: false  # [true, false] true enables this dynamics-belief learner; false disables it. SIT mode also disables it; Gaussian-BNN updates use dynamics.belief_update separately.
+    backend: ensemble_fit  # [model_bank, ensemble_fit, fit_ensemble, likelihood] fit_ensemble is an alias for ensemble_fit. model_bank: energy-score distribution fit constrained near best mean fit; ensemble_fit (alias fit_ensemble): regression only; likelihood: original replay-likelihood weights.
+    predictor: ensemble  # [fixed, map, ensemble] fixed uses planner.friction; map selects the highest-probability bank model; ensemble combines independently rolled models. ensemble_fit requires ensemble.
+    prior: null  # null: uniform; otherwise one nonnegative weight per friction; zero excludes a member; fitting methods warm-start weights, while likelihood refits from this fixed prior.
+    history_samples: 4096  # Maximum randomly selected old transitions per update; recent successful/failed attempts are kept in full without history duplicates.
+    recent_fraction: 0.8  # Evidence share for the latest successful and failed attempts together; remaining share uses old data; absent cohorts are renormalized.
+    evidence_strength: 1.0  # Likelihood and ensemble_fit's separate likelihood probabilities only; unused by model_bank's energy fit.
+    residual_scales: [0.05, 0.05, 0.01, 0.1, 0.01, 0.1, 0.01]  # Likelihood std and ensemble-loss scales in [x m, y m, steering rad, speed m/s, yaw rad, yaw-rate rad/s, slip rad]; not injected process noise.
+    max_standardized_rmse: 50.0  # Fitting methods reject excessive normalized horizon-mean error; likelihood rejects if all supported members mismatch; retain last valid weights.
+    batch_size: 512  # Fixed padded transition/window batch size for inference kernels; ensemble_fit caches member rollouts once per fit; masks ignore padding and new weights reuse compiled planners.
+    fit_horizon: null  # model_bank/ensemble_fit: null uses planner.horizon; positive integer fits recorded control windows, masking short endings without crossing gaps or resets.
+    fit_max_iterations: 100  # model_bank/ensemble_fit: maximum iterations per optimization; member rollouts are cached, and best feasible weights retained.
+    fit_tolerance: 1.0e-6  # model_bank/ensemble_fit: positive optimizer convergence tolerance; not an uncertainty scale or the mean-fit allowance.
+    mean_fit_slack: 1.0e-4  # model_bank only: allowed additive normalized mean-MSE increase above its regression reference; >= 0; changing on resume refits weights.
+  risk_constraint:
+    enabled: false  # [true, false] true enables learned-risk driving constraints when ready; false omits them. Separate from risk.enabled.
+    mode: terminal  # [terminal, all] terminal: constrain only x_H; all: constrain every predicted x_1..x_H.
+    evaluation: predictor  # [predictor, distribution] predictor: score the belief-predicted states; distribution: average each timestep's learned risk across categorical scenarios, not fitted prediction coefficients.
+    lambda_count: 16  # Positive number of risk-penalty levels in the bounded proposal search.
+    lambda_max: 20.0  # Positive exclusive upper bound for the risk-penalty lambda grid.
+    max_candidates: 256  # Positive cap on proposals with risk active; combined constraints use the smaller active cap, never a full Cartesian product.
+  probabilistic_safety:
+    enabled: false  # [true, false] true enables dynamics-distribution violation probability checks; false omits them. Tracking warm-up stays unconstrained.
+    boundary_threshold: 0.05  # Maximum probability of any boundary violation over the horizon, inclusive in [0, 1]; each scenario is counted once, and lambda weights do not change this threshold.
+    terminal_hull_threshold: 0.05  # Maximum terminal safe-set violation probability, inclusive in [0, 1]. NF uses its relaxation NLL bound; facets/implicit use safe_set_relaxation. Missing/failed scenario endpoints are unsafe.
+    lambda_count: 16  # Positive number of penalty levels per active chance axis; disabled or unavailable terms have no lambda axis or table.
+    lambda_max: 20.0  # Positive exclusive upper bound on chance-penalty levels; probabilities already lie in [0, 1] before multiplication by lambda.
+    max_candidates: 256  # Positive bounded joint-proposal cap when chance constraints are active; does not multiply the baseline candidate count by additional grids.
+    fallback: baseline  # [baseline, stop] baseline: continue with SIT-LMPC's least boundary/hull violation and log selected probabilities; stop: save an incomplete attempt before acting when verification fails or is unavailable.
+  horizon: 10  # Number of prediction/control steps; positive integer. Physical prediction duration is horizon * simulation.timestep.
+  samples: 1024  # Number of sampled action sequences per update, for both controllers; > 0.
+  iterations: 1  # MPPI optimization passes per control step; positive integer. Applies to warm-up/tracking only; the current LMPPI update uses one pass.
+  sample_std: [0.25, 0.25]  # LMPPI perturbation std in normalized [steering-speed, acceleration] units. Both entries must be positive. MPPI retains its fixed unit-scale sampling.
+  temperature: 0.01  # Positive importance-weight temperature; smaller values favor best samples.
+  damping: 0.001  # Positive stabilizer in reward-range normalization, not vehicle damping.
+  half_width: 4.0  # Physical failure boundary in meters; > 0. Keep it on resume because saved success/failure labels use this boundary. [resume]
+  boundary_buffer: 0.03  # Inward controller boundary margin, in meters: 0 <= value < half_width. Allowed controller half-width is derived as half_width - boundary_buffer.
+  lambda_count: 16  # Positive integer number of levels per safe-set/boundary lambda axis. LMPPI evaluates lambda_count^2 weight combinations (16 -> 256 candidates).
+  lambda_max: 20.0  # Positive, exclusive upper grid limit; lower limit is fixed at zero. Each axis uses [0, lambda_max) with spacing lambda_max / lambda_count.
+  safe_set_size: 4  # Positive minimum number of extended lap records retained. LMPPI starts after safe_set_size + 1 completed warm-up laps (here: five).
+  safe_set_min_states: 0  # Nonnegative integer; 0 disables the state-count minimum. Shared by controller safe-set retention and fixed-step NF training history. Keep at least safe_set_size laps and add older successful laps to reach this many unique states; NF uses all retained states and repeats passes to reach steps.
+  safe_set_max_points: 2000000  # Positive cap on combined safe-set candidate points before local selection. Excess points are randomly subsampled; full saved lap data is not discarded.
+  hull_selection_points: 1000  # Maximum local points used to construct the five-dimensional hull; integer >= 6. Higher values can increase hull construction and evaluation cost.
+  safe_set_query: facets  # [facets, implicit, nf_density] facets uses the original convex hull; implicit uses a point-hull distance bound; nf_density uses calibrated successful-state NLL. Always uses the selected method; no automatic method fallback.
+  safe_set_density:
+    method: quantile  # [quantile, sigma] quantile uses all states and a minimum-NLL zero reference; sigma uses held-out 90/10 calibration, sigma_cutoff_quantile and mean + penalty_sigma * std. See configs/nf-safe-set-sigma.yaml for the sweep-winning training/planner settings.
+    hidden_dims: 64  # Width of each conditioner hidden layer; separate weights from the value NF; changed settings rebuild on resume.
+    layers: 4  # Number of conditional spline coupling transforms; density models ey, steering, speed and heading error given periodic progress.
+    bins: 8  # Rational-quadratic spline bins per transform.
+    steps: 10  # [positive integer, null] Integer: exact Adam updates per NF fit; repeat shuffled passes when needed, stopping mid-pass at the budget. null: legacy epochs policy.
+    batch_size: 256  # Positive fixed padded batch size; balance retained laps and progress bins. The final partial batch has zero-weight padding.
+    learning_rate: 1.0e-3  # Adam learning rate for the separate safe-state density model.
+    relaxation_quantile: 0.99  # Fraction in (0, 1]; raw-NLL quantile for optimal-trajectory acceptance. 1.0 selects the maximum, independently of the penalty upper bound.
+    penalty_upperbound_quantile: 0.999  # Fraction in (0, 1]; raw-NLL quantile for the penalty upper reference. 1.0 selects the maximum. The lower reference is always the minimum safe-set NLL.
+    sigma_cutoff_quantile: 0.20  # Fraction in (0, 1]; sigma-only zero-penalty and optimal-trajectory threshold; ignored by quantile.
+    penalty_sigma: 4.0  # Finite value >= 0; sigma-only upper reference = held-out NLL mean + this multiple of population std. Sweep default: 4.
+    penalty_transform: linear  # [linear, log1p] linear uses a capped NLL ramp; log1p compresses max(NLL-minimum, 0) using the calibration width, without upper clipping.
+    penalty_normalization: calibrated  # [calibrated, sample_max] calibrated maps the configured upper reference to penalty 1; sample_max maps the valid sampled maximum to 1 (capped at the upper reference only for linear). Frozen per update; log1p rerolls can exceed 1.
+    min_training_states: 128  # Positive integer warning threshold; smaller nonempty safe sets still fit and use NF.
+    min_calibration_states: 64  # Positive integer warning threshold; smaller nonempty safe sets still calibrate and use NF.
+    max_states_per_partition: 20000  # Positive cap per sigma training/calibration partition, matching the historical sweep. Ignored by quantile, which uses all retained states.
+    progress_bins: 8  # Track-position bins for balanced fitting and per-region calibration diagnostics.
+    calibration: global  # [global, local] Select reference states globally or in the terminal progress window. quantile uses all retained states; sigma uses the held-out 10%.
+  implicit_hull_point_bucket: 64  # Positive point-count padding increment for the implicit backend's finite precompiled table; masked padding never drops selected points.
+  implicit_hull_max_iterations: 128  # Positive Frank-Wolfe iteration budget per implicit query; unresolved membership is conservative, not silently accepted.
+  implicit_hull_tolerance: 1.0e-4  # Positive desired upper-minus-lower Euclidean distance gap; finite-precision guards also apply; not a membership relaxation.
+  implicit_hull_block_size: 1024  # Positive maximum implicit-query batch per GPU block; caps point-query matrix workspace.
+  safe_set_selection: exact  # [exact, predicted_window] exact preserves rollout-based selection; predicted_window overlaps approximate CPU geometry with GPU rollouts and rebuilds on a miss.
+  safe_set_window_margin: 5.0  # Additional predicted-window padding in meters; only used by predicted_window, not a safety guarantee.
+  projection_block_size: 8192  # Positive maximum poses per compiled particle-to-track projection block; controls workspace, not prediction accuracy.
+  hull_bucket: 10  # Facet-count increments for the bounded precompiled table; original TWIT increment was 10; masked padding keeps every facet.
+  hull_precompile: true  # [true, false] Compile sample and candidate hull scorers before driving; false disables upfront compilation for diagnostics.
+  hull_precompile_limit: 1200  # Exclusive upper facet-size limit, as in TWIT; with bucket=10, compile 10..1190; larger hulls reuse these scorers in chunks.
+  safe_set_relaxation: 0.03  # Nonnegative mixed-coordinate tolerance for facets/implicit only; neither is a pure meter margin. NF trajectory checks use safe_set_density.relaxation_quantile.
+  safe_set_reward_limit: 1.0  # Positive geometry reward clip limit; NF penalties bypass it and use penalty_transform and penalty_normalization.
+  extension_seconds: 2.0  # Positive factor controlling the next-lap extension of each safe-set record. Original formula: extension distance = vmax * extension_seconds * horizon * timestep.
+  reference_interval: 3.0  # Positive local safe-set search-window factor; original default is 3.0. Window margins use speed * (reference_interval +/- 1) * timestep.
+  search_points: 400  # Local waypoint-index search range for Cartesian -> Frenet projection. Use a positive integer; larger ranges search more of the track.
+  action_rate_penalty: 0.01  # Nonnegative LMPPI penalty on consecutive changes in normalized actions. Set 0.0 to disable the action-rate penalty.
+  mean_value: true  # [true, false] true: average V(x_1..x_H) or Q(x_0,u_0)..Q(x_H-1,u_H-1); false: terminal V(x_H) or Q(x_H,u_H) with a sampled extra action.
+  scan_rollout: true  # [true, false] true: use jax.lax.scan for ST rollouts; false: use the unrolled baseline. --no-scan overrides this to false. Both paths use the same dynamics.
+
+value:
+  model: normalizing_flow  # [normalizing_flow, mlp] normalizing_flow: neural spline flow; mlp: deterministic normalized-value regression with MSE. [resume]
+  input_mode: state  # [state, state_action] state: existing five Frenet features; state_action: append the next two physical controls, independently of risk.input_mode. [resume]
+  hidden_dims: 128  # Hidden-layer width: two hidden layers per flow conditioner, or each MLP hidden layer. [resume]
+  layers: 4  # Number of flow transforms, or number of MLP hidden layers. [resume]
+  bins: 8  # Rational-quadratic spline bins per flow transform; unused by MLP. [resume]
+  activation: swish  # [swish, gelu, tanh, relu, sin] [resume]
+  batch_size: 300  # Positive training batch size. Partial final batches are masked, not discarded.
+  epochs: 300  # Positive number of epochs per training round, not for the entire experiment.
+  learning_rate: 5.0e-5  # Positive Adam learning rate. Scientific notation includes a decimal for YAML.
+  samples: 20  # Flow latent samples averaged per value prediction; unused by deterministic MLP; separate from planner.samples.
+  boundary_samples: 100  # Nonnegative number of synthetic outside-boundary examples per training round. These receive the low-value target; 0 disables this data augmentation.
+
+risk:
+  enabled: false  # [true, false] true trains the separate outcome-probability model; false disables risk training. planner.risk_constraint controls its use for driving.
+  input_mode: state_action  # [state, state_action] state: five Frenet features; state_action: append the next applied physical controls; independent of value.input_mode. [resume]
+  buffer_size: null  # Active trajectories per outcome; null follows planner.safe_set_size; full saved trajectories are never discarded.
+  failure_fraction: 0.5  # Desired failed-example fraction in batches; sampling-aware loss weights correct the artificial balance.
+  validation_fraction: 0.2  # Held-out fraction for new episodes in [0, 0.5); resume preserves existing train/validation assignments; 0 assigns new episodes to training.
+  cutoff_mode: manual  # [manual, learned] manual: use manual_cutoff once a risk model is trained; learned: select from balanced held-out data; changes on resume take effect before driving.
+  manual_cutoff: 0.5  # Fixed inclusive probability threshold in [0, 1] for manual mode; key 4 still shows validation predictions and this cutoff line.
+  target_safe_fraction: 0.50  # Learned mode only: minimum successful-trajectory fraction below the cutoff in balanced held-out states; not probability rescaling.
+  cutoff_min_states: 32  # Learned mode only: minimum held-out states at or below the cutoff; fewer states leave it unavailable.
+  cutoff_min_episodes: 2  # Learned mode only: minimum distinct held-out successful trajectories contributing states below the cutoff.
+  hidden_dims: 256  # Positive width of the sigmoid-risk MLP hidden layers. [resume]
+  layers: 2  # Positive number of hidden layers in the risk MLP. [resume]
+  batch_size: 256  # Fixed training examples per batch; at least two, with both outcomes represented.
+  batches_per_epoch: 8  # Fixed sampled batches per risk epoch; limits GPU work independently of archive size.
+  epochs: 300  # Positive epochs per completed-attempt risk update once both training outcomes exist.
+  learning_rate: 1.0e-3  # Positive Adam learning rate for risk training, separate from value learning.
+
+diagnostics:
+  render: true  # [true, false] true shows the Gym window and historical render states; false disables the Gym window. --headless also selects false.
+  plots: false  # [true, false] true enables live state/prediction plots; false disables them. Keyboard debug views and saved summaries are controlled separately.
+  plot_interval: 10  # Positive number of control steps between live-plot updates. Ignored when plots is false; 10 steps at timestep=0.1 means one simulated second.
+  trace_steps: 50  # Shared recent-step limit for trace.json, insight recordings and live Gym history; 0 disables both trace and insight capture. Full trajectories remain saved independently.
+  keep_open_on_failure: false  # [true, false] true holds the rendered failure for history inspection; false follows stop/reset handling immediately. Right past the newest frame follows the existing failure policy.
+  summary_plots: true  # [true, false] true automatically saves summary figures; false disables automatic exports. Keyboard option 2 can still display/export summaries.
+  keyboard_controls: true  # [true, false] true enables Left/Right history, 1-6 debug views, 0 to close plots and Q to quit; false disables commands. Requires a display; Ctrl+Alt+K suspends/resumes listening.
+  print_lambdas: false  # [true, false] true prints selected lambdas each LMPPI iteration; false suppresses those prints.
+
+
+# Migration notes below are documentation only, not additional YAML keys.
+# Legacy TWIT residual/kernel/BNN modules and support filtering were removed; planner.dynamics can now select the separate frozen dyna-dist Gaussian BNN.
+# GPJax is retained as an optional inactive module with no active racecar setting.
+# adaptive_covariance, a_cov_shift, and multi-run batch loops have not been ported as experiment options.
+# Cartesian/action dimensions are 7/2; value and risk inputs are 5 (state) or 7 (state_action); the value output is one-dimensional.
+# Simulator model='st', map_scale=1.0, lidar scanning off, and steering delay=0 are fixed in adapters/f1tenth.py; both parameter sets use F1TENTH fullscale_vehicle_params(), with simulation.friction for Gym and planner.friction for prediction.
+# State-noise truncation at +/-3 standard deviations is fixed in experiments/randomness.py.
+# Old flat exp_config.yaml/value_config.yaml files are not accepted directly; use the sectioned names above, and do not add removed keys.

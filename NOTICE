@@ -1,0 +1,15 @@
+SIT-LMPC Remastered derives its racecar implementation from BRO-LMPC and
+SIT-LMPC/TWIT_LMPC by Zirui Zang (zzangupenn).
+The inherited Apache-2.0 license is retained in LICENSES/Apache-2.0.txt;
+the upstream notice is retained verbatim in NOTICE.upstream. The repository's
+original MIT license remains in LICENSE.
+
+Source revisions, relevant working-file hashes and copied dependency files
+are recorded in docs/MIGRATION_SOURCE_MANIFEST.json. Vendor packages retain
+their respective licenses and notices. No original repositories are modified.
+
+The BNN population learner and coherent sampler are provided by the vendored
+dyna-dist snapshot. F1TENTH provides the ST simulator; utilitySuite provides
+optional Qt plotting. Generated models, datasets and experiment outputs are runtime artifacts,
+excluded from Git. The curated examples/racecar directory intentionally includes
+one small pretrained population model and selected numeric validation data.

@@ -1,0 +1,12 @@
+extends: bnn-posterior.yaml  # Inherit BNN learning and the complete default YAML.
+output:
+  exp_name: bnn-chance  # Prefix for a new timestamped result directory.
+planner:
+  probabilistic_safety:
+    enabled: true  # Enable dynamics-distribution boundary and terminal-hull chance constraints.
+    boundary_threshold: 0.05  # Allow at most 5% sampled probability of any boundary violation along the horizon.
+    terminal_hull_threshold: 0.9  # Original v2 experiment's permissive hull-violation threshold; decrease for stricter membership.
+    lambda_count: 10  # Sampled chance-penalty levels; no chance lambda axis exists when disabled.
+    lambda_max: 20.0  # Exclusive upper limit on chance-penalty multipliers.
+    max_candidates: 256  # Maximum candidate control sequences considered by chance selection.
+    fallback: baseline  # Continue with the conservative SIT selection and report probabilities; stop refuses infeasible candidates.

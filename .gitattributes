@@ -1,0 +1,6 @@
+# Preserve byte-identical dependency and track-asset snapshots.
+vendor/** -text -whitespace
+src/sit_lmpc/track/maps/** -text -whitespace
+
+# Curated tabular results use portable LF line endings.
+examples/racecar/data/*.csv text eol=lf

@@ -1,0 +1,10 @@
+extends: bnn-chance-smoke.yaml
+output:
+  directory: results/validation-bnn-resume-smoke
+  resume: results/portable-bnn-checkpoint
+simulation:
+  max_laps: 4
+  max_steps: 1180
+planner:
+  dynamics:
+    checkpoint: null

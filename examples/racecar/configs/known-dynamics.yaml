@@ -1,0 +1,198 @@
+# Standalone 300-attempt example; run from the repository root.
+# Full settings are explicit so later edits to the default preset do not change this example.
+diagnostics:
+  keep_open_on_failure: false
+  keyboard_controls: false
+  plot_interval: 10
+  plots: false
+  print_lambdas: false
+  render: false
+  summary_plots: true
+  trace_steps: 50
+output:
+  checkpoint_every_trials: 10
+  directory: null
+  exp_name: example-known-dynamics
+  init_path: null
+  quick_load: false
+  quick_load_init: true
+  resume: null
+  root: results
+  trust_legacy_init: false
+planner:
+  action_rate_penalty: 0.01
+  belief:
+    backend: ensemble_fit
+    batch_size: 512
+    enabled: false
+    evidence_strength: 1.0
+    fit_horizon: null
+    fit_max_iterations: 100
+    fit_tolerance: 1.0e-06
+    history_samples: 4096
+    max_standardized_rmse: 50.0
+    mean_fit_slack: 0.0001
+    predictor: ensemble
+    prior: null
+    recent_fraction: 0.8
+    residual_scales:
+    - 0.05
+    - 0.05
+    - 0.01
+    - 0.1
+    - 0.01
+    - 0.1
+    - 0.01
+  boundary_buffer: 0.03
+  damping: 0.001
+  dynamics:
+    backend: st
+    belief_update: frozen
+    calibration_fraction: 0.2
+    calibration_horizon: 10
+    calibration_min_windows: 4
+    calibration_powers:
+    - 1.0
+    - 0.1
+    - 0.01
+    - 0.001
+    - 0.0001
+    - 1.0e-05
+    - 1.0e-06
+    calibration_score_slack: 0.05
+    calibration_split: random_windows
+    calibration_target_coverage: 0.95
+    chance_estimation: independent
+    checkpoint: null
+    likelihood_power: 1.0
+    particles: 64
+    posterior_method: tempered
+    update_batch_size: 512
+    validation_fraction: 0.2
+    validation_max_windows: 64
+    validation_particles: 64
+    verification_confidence: 0.95
+    verification_particles: 2048
+  extension_seconds: 2.0
+  friction: 0.8130714886349459
+  half_width: 4.0
+  horizon: 10
+  hull_bucket: 10
+  hull_precompile: true
+  hull_precompile_limit: 1200
+  hull_selection_points: 1000
+  implicit_hull_block_size: 1024
+  implicit_hull_max_iterations: 128
+  implicit_hull_point_bucket: 64
+  implicit_hull_tolerance: 0.0001
+  iterations: 1
+  lambda_count: 16
+  lambda_max: 20.0
+  mass_ratio: 0.9718613402068144
+  mean_value: true
+  model_bank:
+    frictions:
+    - 0.5
+  probabilistic_safety:
+    boundary_threshold: 0.05
+    enabled: false
+    fallback: baseline
+    lambda_count: 16
+    lambda_max: 20.0
+    max_candidates: 256
+    terminal_hull_threshold: 0.05
+  projection_block_size: 8192
+  reference_interval: 3.0
+  risk_constraint:
+    enabled: false
+    evaluation: predictor
+    lambda_count: 16
+    lambda_max: 20.0
+    max_candidates: 256
+    mode: terminal
+  safe_set_density:
+    batch_size: 256
+    bins: 8
+    calibration: global
+    epochs: 50
+    hidden_dims: 64
+    layers: 4
+    learning_rate: 0.001
+    max_states_per_partition: 20000
+    method: quantile
+    min_calibration_states: 64
+    min_training_batches: 0
+    min_training_states: 128
+    penalty_normalization: calibrated
+    penalty_sigma: 4.0
+    penalty_transform: linear
+    penalty_upperbound_quantile: 0.999
+    progress_bins: 8
+    relaxation_quantile: 0.99
+    sigma_cutoff_quantile: 0.2
+    steps: 10
+  safe_set_max_points: 2000000
+  safe_set_min_states: 0
+  safe_set_query: facets
+  safe_set_relaxation: 0.03
+  safe_set_reward_limit: 1.0
+  safe_set_selection: exact
+  safe_set_size: 4
+  safe_set_window_margin: 5.0
+  sample_std:
+  - 0.25
+  - 0.25
+  samples: 1024
+  scan_rollout: true
+  search_points: 400
+  sit_lmpc_mode: true
+  temperature: 0.01
+risk:
+  batch_size: 256
+  batches_per_epoch: 8
+  buffer_size: null
+  cutoff_min_episodes: 2
+  cutoff_min_states: 32
+  cutoff_mode: manual
+  enabled: false
+  epochs: 300
+  failure_fraction: 0.5
+  hidden_dims: 256
+  input_mode: state_action
+  layers: 2
+  learning_rate: 0.001
+  manual_cutoff: 0.5
+  target_safe_fraction: 0.5
+  validation_fraction: 0.2
+simulation:
+  action_scale:
+  - 0.4
+  - 3.5
+  control_noise:
+  - 0.001
+  - 0.001
+  dtype: float32
+  friction: 0.8130714886349459
+  initial_speed: 10.0
+  integrator_timestep: 0.02
+  map: custom1
+  mass_ratio: 0.9718613402068144
+  max_laps: 300
+  max_steps: 300000
+  model: dynamic_ST
+  seed: 20261107
+  seed_mode: fixed
+  state_noise: 0.001
+  timestep: 0.1
+value:
+  activation: swish
+  batch_size: 300
+  bins: 8
+  boundary_samples: 100
+  epochs: 300
+  hidden_dims: 128
+  input_mode: state
+  layers: 4
+  learning_rate: 5.0e-05
+  model: normalizing_flow
+  samples: 20

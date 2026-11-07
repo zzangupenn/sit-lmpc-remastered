@@ -1,0 +1,55 @@
+{
+  "completed_at": "2026-11-07T13:32:31.351805-05:00",
+  "unit_tests": 479,
+  "integration_tests": 158,
+  "total_tests": 637,
+  "method": "Full-suite runs plus focused reruns of affected tests; all selected tests now pass",
+  "gpu_smoke": {
+    "Known-dynamics SIT-LMPC": {
+      "status": "lap_limit",
+      "successful_laps": 3,
+      "failed_attempts": 0,
+      "applied_steps": 1150,
+      "learned_steps": 382,
+      "training_generations": 2,
+      "dynamics_belief_generation": 0,
+      "elapsed_seconds": 11.251921795774251,
+      "lap_seconds": [
+        38.400000000000276,
+        38.400000000000276,
+        38.20000000000027
+      ]
+    },
+    "BNN posterior + chance": {
+      "status": "lap_limit",
+      "successful_laps": 3,
+      "failed_attempts": 0,
+      "applied_steps": 1152,
+      "learned_steps": 386,
+      "training_generations": 2,
+      "dynamics_belief_generation": 1,
+      "elapsed_seconds": 28.415086358087137,
+      "lap_seconds": [
+        38.400000000000276,
+        38.20000000000027,
+        38.60000000000028
+      ]
+    }
+  },
+  "standalone_archive": {
+    "offline_install": true,
+    "dependency_isolation": true,
+    "default_and_bnn_presets": true,
+    "vendored_sources_in_archive": true,
+    "temporary_environment_removed": true
+  },
+  "source_files_unchanged": 259,
+  "git_artifacts_ignored": [
+    ".venv",
+    "artifacts",
+    "results",
+    "dist",
+    ".cache"
+  ],
+  "initial_bnn_fingerprint": "b3a4253989e698425b6eb8db8097878cdb06106aa57319ab8ef7eed5fbcaba7b"
+}
