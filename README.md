@@ -22,6 +22,8 @@ uv run python examples/racecar/run_example.py --controller bnn-unknown
 
 ## Run
 
+The simulator uses the bundled snapshot of [`f1tenth/f1tenth_gym`](https://github.com/f1tenth/f1tenth_gym), branch `zirui`, at commit [`1e35dc997988d13e573f1fa94df1a6a20cde3077`](https://github.com/f1tenth/f1tenth_gym/commit/1e35dc997988d13e573f1fa94df1a6a20cde3077) (September 16, 2025). Its 40 vendored files match that commit exactly. `uv sync` installs this snapshot from `vendor/f1tenth_gym`; no separate Gym checkout or installation is required.
+
 ```bash
 uv sync --extra gpu --extra plots --extra dev
 uv run sit-racecar
